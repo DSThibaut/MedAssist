@@ -10,9 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_05_134102) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_05_140032) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.date "date"
+    t.bigint "user_id", null: false
+    t.bigint "medical_center_id", null: false
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["medical_center_id"], name: "index_appointments_on_medical_center_id"
+    t.index ["user_id"], name: "index_appointments_on_user_id"
+  end
+
+  create_table "medical_care_medicaments", force: :cascade do |t|
+    t.integer "frequence"
+    t.integer "stock"
+    t.bigint "medical_care_id", null: false
+    t.bigint "medicament_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["medical_care_id"], name: "index_medical_care_medicaments_on_medical_care_id"
+    t.index ["medicament_id"], name: "index_medical_care_medicaments_on_medicament_id"
+  end
+
+  create_table "medical_cares", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "pathology"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_medical_cares_on_user_id"
+  end
+
+  create_table "medical_centers", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "phone_number"
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "medicaments", force: :cascade do |t|
+    t.string "name"
+    t.string "unit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +75,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_134102) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "appointments", "medical_centers"
+  add_foreign_key "appointments", "users"
+  add_foreign_key "medical_care_medicaments", "medical_cares"
+  add_foreign_key "medical_care_medicaments", "medicaments"
+  add_foreign_key "medical_cares", "users"
 end
