@@ -1,0 +1,11 @@
+<%= simple_form_for(medical_care) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :pathology %>
+  <div data-add-medicament-target="forms">
+    <%= render partial: "medical_care_medicaments/form", locals: {f: f} %>
+  </div>
+  <button  class="btn btn-secondary" data-action="click->add-medicament#addNewForm">Add Medicament</button>
+  <br>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

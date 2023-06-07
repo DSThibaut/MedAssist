@@ -1,9 +1,9 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-
+User.destroy_all
+Medicament.destroy_all
+MedicalCenter.destroy_all
+MedicalCare.destroy_all
+Appointment.destroy_all
+MedicalCareMedicament.destroy_all
 
 User.create!(email: "test@test.com", first_name: "Jean", last_name: "Durant", password: "password")
 User.create!(email: "test2@test.com", first_name: "John", last_name: "Dupont", password: "password")
@@ -29,11 +29,11 @@ MedicalCare.create!(title: "Traitement pour le Diabète", description: "Defaut d
 MedicalCare.create!(title: "Traitement pour le Diabète", description: "Defaut d'insuline dans le corps", pathology: "Diabète", user_id: 4)
 MedicalCare.create!(title: "Traitement pour le Diabète", description: "Defaut d'insuline dans le corps", pathology: "Diabète", user_id: 5)
 
-Appointment.create!(date: "2023-06-16", status: 0, user_id: 1, medical_center_id: 1)
-Appointment.create!(date: "2023-07-20", status: 1, user_id: 2, medical_center_id: 2)
-Appointment.create!(date: "2023-07-14", status: 2, user_id: 3, medical_center_id: 3)
-Appointment.create!(date: "2023-06-24", status: 0, user_id: 4, medical_center_id: 4)
-Appointment.create!(date: "2023-06-28", status: 1, user_id: 5, medical_center_id: 5)
+Appointment.create!(date: DateTime.current + 2.hour, status: 0, user_id: 1, medical_center_id: 1)
+Appointment.create!(date: DateTime.current + 2.days + 4.hour, status: 1, user_id: 2, medical_center_id: 2)
+Appointment.create!(date: DateTime.current + 2.days + 4.hour, status: 2, user_id: 3, medical_center_id: 3)
+Appointment.create!(date: DateTime.current + 2.days + 4.hour, status: 0, user_id: 4, medical_center_id: 4)
+Appointment.create!(date: DateTime.current + 2.days + 4.hour, status: 1, user_id: 5, medical_center_id: 5)
 
 MedicalCareMedicament.create!(medical_care_id: 1, medicament_id: 1, frequence: 0, stock: 100, dose: 2)
 MedicalCareMedicament.create!(medical_care_id: 2, medicament_id: 2, frequence: 1, stock: 100, dose: 1)
