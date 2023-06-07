@@ -1,0 +1,11 @@
+<h1>Medical Center index</h1>
+
+<p>--------------------------------</p>
+<% @medical_centers.each do |medical_center| %>
+<div>
+<p><%= medical_center.name %></p>
+<p><%= medical_center.address %></p>
+  <%= link_to "Prendre rendez-vous ici", new_medical_center_appointment_path(medical_center.id) %>
+<p>--------------------------------</p>
+<% end %>
+</div>

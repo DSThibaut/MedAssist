@@ -9,4 +9,8 @@ Rails.application.routes.draw do
       end
     end
   end
+  resources :medical_centers, only: [:index] do
+    resources :appointments, except: [:show]
+  end
+  resources :appointments, only: [:index, :new, :create, :edit, :update, :destroy]
 end
