@@ -1,34 +1,15 @@
-<h1>Médicaments</h1>
+<h1>Médicaments index</h1>
 
-<section id="stock-actuel">
-  <h2>Stock actuel</h2>
+<p>--------------------------------</p>
+<% current_user.medical_cares.each do |traitement| %>
+  <% traitement.medicaments.each do |medicament| %>
+  <p><%= medicament.name %></p>
+  <p><%= medicament.unit %></p>
+  <p><%= medicament.stock %></p>
+    <%= link_to "Modifier le stock", edit_medicament_path(medicament.id) %>
+<p>--------------------------------</p>
+  <% end %>
+  <% end %>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Nom du médicament</th>
-        <th>Quantité</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @medicaments.each do |medicament| %>
-        <tr>
-          <td><%= medicament.name %></td>
-          <td><%= medicament.unit %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</section>
-
-<section id="ajouter-medicament">
-  <h2>Ajouter un médicament</h2>
-
-  <form action="/medicaments" method="post">
-    <%= csrf_meta_tags %>
-
-    <input type="text" name="nom_medicament" placeholder="Nom du médicament" required>
-    <input type="number" name="quantite_medicament" placeholder="Quantité" required>
-    <button type="submit">Ajouter</button>
-  </form>
-</section>
+<%# <%= link_to 'Ajouter un médicament', _path %>
+<% console %>

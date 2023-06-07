@@ -25,12 +25,13 @@ class MedicalCaresController < ApplicationController
   def destroy
     @medical_care = MedicalCare.find(params[:id])
     @medical_care.destroy
+
     redirect_to profil_path
   end
 
   private
 
   def medical_care_params
-  params.require(:medical_care).permit(:title, :description, :pathology, :start_date, :end_date, medical_care_medicaments_attributes: [:frequence, :medicament_id, :dose])
+    params.require(:medical_care).permit(:title, :description, :pathology, :start_date, :end_date, medical_care_medicaments_attributes: [:frequence, :medicament_id, :dose])
   end
 end

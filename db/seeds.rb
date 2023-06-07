@@ -11,11 +11,11 @@ User.create!(email: "test3@test.com", first_name: "Julie", last_name: "Dugland",
 User.create!(email: "test4@test.com", first_name: "Jacob", last_name: "Duchene", password: "password")
 User.create!(email: "test5@test.com", first_name: "Valérie", last_name: "Dubouleau", password: "password")
 
-Medicament.create!(name: "Doliprane", unit: "comprimé")
-Medicament.create!(name: "Daffalgan", unit: "ampoule")
-Medicament.create!(name: "Efferalgan", unit: "injection")
-Medicament.create!(name: "Flector", unit: "pommade")
-Medicament.create!(name: "Subutex", unit: "comprimé")
+Medicament.create!(name: "Doliprane", unit: "comprimé", stock: 100)
+Medicament.create!(name: "Daffalgan", unit: "ampoule", stock: 100)
+Medicament.create!(name: "Efferalgan", unit: "injection", stock: 100)
+Medicament.create!(name: "Flector", unit: "pommade", stock: 100)
+Medicament.create!(name: "Subutex", unit: "comprimé", stock: 100)
 
 MedicalCenter.create!(name: "Clinique du lac", address: "20 rue des capucins 69001 Lyon", phone_number: "0606060606")
 MedicalCenter.create!(name: "Hopital des malades", address: "12 avenue général leclerc 69160", phone_number: "07-07-07-07-07")
@@ -23,11 +23,11 @@ MedicalCenter.create!(name: "Docteur Desanté", address: "14 rue joseph richard 
 MedicalCenter.create!(name: "Laboratoires Seringue", address: "31 rue du buisset 69600 Oullins", phone_number: "0909090909")
 MedicalCenter.create!(name: "Laboratoire Piqure", address: "10 rue jules froment 69008 Lyon", phone_number: "0505050505")
 
-MedicalCare.create!(title: "Traitement pour le Diabète", description: "Defaut d'insuline dans le corps", pathology: "Diabète", user_id: 1)
-MedicalCare.create!(title: "Traitement pour le Diabète", description: "Defaut d'insuline dans le corps", pathology: "Diabète", user_id: 2)
-MedicalCare.create!(title: "Traitement pour le Diabète", description: "Defaut d'insuline dans le corps", pathology: "Diabète", user_id: 3)
-MedicalCare.create!(title: "Traitement pour le Diabète", description: "Defaut d'insuline dans le corps", pathology: "Diabète", user_id: 4)
-MedicalCare.create!(title: "Traitement pour le Diabète", description: "Defaut d'insuline dans le corps", pathology: "Diabète", user_id: 5)
+MedicalCare.create!(title: "Traitement pour le Diabète", description: "Defaut d'insuline dans le corps", user_id: 1, start_date: , end_date:)
+MedicalCare.create!(title: "Traitement pour le Diabète", description: "Defaut d'insuline dans le corps", user_id: 2, start_date: , end_date:)
+MedicalCare.create!(title: "Traitement pour le Diabète", description: "Defaut d'insuline dans le corps", user_id: 3, start_date: , end_date:)
+MedicalCare.create!(title: "Traitement pour le Diabète", description: "Defaut d'insuline dans le corps", user_id: 4, start_date: , end_date:)
+MedicalCare.create!(title: "Traitement pour le Diabète", description: "Defaut d'insuline dans le corps", user_id: 5, start_date: , end_date:)
 
 Appointment.create!(date: DateTime.current + 2.hour, status: 0, user_id: 1, medical_center_id: 1)
 Appointment.create!(date: DateTime.current + 2.days + 4.hour, status: 1, user_id: 2, medical_center_id: 2)

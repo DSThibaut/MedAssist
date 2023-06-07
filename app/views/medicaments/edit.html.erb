@@ -1,0 +1,8 @@
+<h1>Modifier votre stock de médicaments</h1>
+
+<div>
+  <%= simple_form_for @medicament do |f| %>
+    <%= f.input :increment_value, required: true %>
+    <%= f.submit "Modifier le stock", class: "btn btn-primary" %>
+  <% end %>
+</div>

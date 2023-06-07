@@ -1,6 +1,7 @@
 <h1>Dashboard/Profil</h1>
 <h3>Mes Traitements</h3>
 
+
 <p>---------------------------------------</p>
 <% current_user.medical_cares.each do |traitement| %>
   <p><%= traitement.title %></p>
@@ -22,4 +23,3 @@
  <%= link_to "Ajouter un Traitement", new_medical_care_path %>
 
 <% console %>
-<%# .strf("%A %d %B %Y") %>

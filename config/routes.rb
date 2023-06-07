@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :medicaments
   get '/profil', to: 'dashboards#profil', as: "profil"
   delete '/profil/medical_cares/:id', to: 'medical_cares#destroy', as: 'delete_medical_care'
+  delete '/appointments/:id', to: 'appointments#destroy', as: 'delete_appointment'
   resources :profil do
     collection do
       resources :medical_cares do
