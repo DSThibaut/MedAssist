@@ -35,8 +35,8 @@ Appointment.create!(date: DateTime.current + 2.days + 4.hour, status: 2, user_id
 Appointment.create!(date: DateTime.current + 2.days + 4.hour, status: 0, user_id: 4, medical_center_id: 4)
 Appointment.create!(date: DateTime.current + 2.days + 4.hour, status: 1, user_id: 5, medical_center_id: 5)
 
-MedicalCareMedicament.create!(medical_care_id: 1, medicament_id: 1, frequence: 0, stock: 100, dose: 2)
-MedicalCareMedicament.create!(medical_care_id: 2, medicament_id: 2, frequence: 1, stock: 100, dose: 1)
-MedicalCareMedicament.create!(medical_care_id: 3, medicament_id: 3, frequence: 0, stock: 100, dose: 4)
-MedicalCareMedicament.create!(medical_care_id: 4, medicament_id: 4, frequence: 2, stock: 100, dose: 2)
-MedicalCareMedicament.create!(medical_care_id: 5, medicament_id: 5, frequence: 3, stock: 100, dose: 3)
+MedicalCareMedicament.create!(medical_care_id: 1, medicament_id: 1, frequence: 0, dose: 2)
+MedicalCareMedicament.create!(medical_care_id: 2, medicament_id: 2, frequence: 1, dose: 1)
+MedicalCareMedicament.create!(medical_care_id: 3, medicament_id: 3, frequence: 0, dose: 4)
+MedicalCareMedicament.create!(medical_care_id: 4, medicament_id: 4, frequence: 2, dose: 2)
+MedicalCareMedicament.create!(medical_care_id: 5, medicament_id: 5, frequence: 3, dose: 3)

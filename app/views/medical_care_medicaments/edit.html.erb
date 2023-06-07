@@ -1,0 +1,6 @@
+<%= simple_form_for @medical_care_medicament do |f| %>
+  <%= f.association :medicament %>
+  <%= f.input :dose %>
+  <%= f.select :frequence, MedicalCareMedicament.frequences.keys %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
