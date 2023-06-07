@@ -24,11 +24,13 @@
 <section id="ajouter-medicament">
   <h2>Ajouter un médicament</h2>
 
-  <form action="/medicaments" method="post">
-    <%= csrf_meta_tags %>
+  <%= form_with model: @medicament, url: medicaments_path, method: :post do |form| %>
+    <%= form.label :name, "Nom du médicament" %>
+    <%= form.text_field :name %>
+    <%= form.label :unit, "Type" %>
 
-    <input type="text" name="nom_medicament" placeholder="Nom du médicament" required>
-    <input type="number" name="quantite_medicament" placeholder="Quantité" required>
-    <button type="submit">Ajouter</button>
-  </form>
+    <%= form.select :unit, collection: Medicament::UNITS  %>
+    <%= form.submit "Ajouter" %>
+
+  <% end %>
 </section>
