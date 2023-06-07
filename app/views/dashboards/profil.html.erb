@@ -1,5 +1,25 @@
 <h1>Dashboard/Profil</h1>
-<p>---------------------------------------</p>
 <h3>Mes Traitements</h3>
 
- <%= link_to "Ajouter un Traitement", new_medical_care_path(current_user[:id]) %>
+
+<p>---------------------------------------</p>
+<% current_user.medical_cares.each do |traitement| %>
+  <p><%= traitement.title %></p>
+  <p>Début du traitement: <%= traitement.start_date.strftime("%A %d %B %Y") %></p>
+  <p>Fin du traitement: <%= traitement.end_date.strftime("%A %d %B %Y") %></p>
+  <% traitement.medical_care_medicaments.each do |traitement_medicament| %>
+  <%= traitement_medicament.medicament.name %>
+  <%= traitement_medicament.dose.to_i %>
+  <%= traitement_medicament.medicament.unit %>
+  <%= traitement_medicament.frequence %>
+  <%= link_to "Modifier le medicament", edit_medical_care_medical_care_medicament_path(traitement, traitement_medicament) %>
+  <br>
+  <% end %>
+  <%= link_to "Modifier le traitement", edit_medical_care_path(traitement.id)  %>
+  <%= link_to "Supprimer le traitement", delete_medical_care_path(traitement.id), data: {turbo_method: :delete} %>
+<p>---------------------------------------</p>
+<% end %>
+
+ <%= link_to "Ajouter un Traitement", new_medical_care_path %>
+
+<% console %>

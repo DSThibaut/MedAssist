@@ -1,1 +1,10 @@
 <h1>Modifier votre RDV</h1>
+
+<div>
+  <p><%= @medical_center.name %></p>
+  <p><%= @medical_center.address %></p>
+  <%= simple_form_for [@medical_center, @appointment] do |f| %>
+    <%= f.input :date, required: true%>
+    <%= f.submit "Modifier le RDV", class: "btn btn-primary" %>
+  <% end %>
+</div>

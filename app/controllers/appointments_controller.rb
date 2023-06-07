@@ -26,17 +26,19 @@ class AppointmentsController < ApplicationController
 
   def edit
     @appointment = Appointment.find(params[:id])
+    @medical_center = @appointment.medical_center
   end
 
   def update
     @appointment = Appointment.find(params[:id])
     @appointment.update(appointment_params)
-
-    redirect_to medical_center_appointments
+    redirect_to appointments_path
   end
 
   def destroy
     @appointment = Appointment.find(params[:id])
+    @appointment.destroy
+    redirect_to appointments_path
   end
 
   private

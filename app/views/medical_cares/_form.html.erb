@@ -2,6 +2,8 @@
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :pathology %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
   <div data-add-medicament-target="forms">
     <%= render partial: "medical_care_medicaments/form", locals: {f: f} %>
   </div>
