@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   get '/profil', to: 'dashboards#profil', as: "profil"
+  delete '/appointments/:id', to: 'appointments#destroy', as: 'delete_appointment'
   resources :profil do
     collection do
       resources :medical_cares do

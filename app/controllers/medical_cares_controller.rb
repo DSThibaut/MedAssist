@@ -7,14 +7,13 @@ class MedicalCaresController < ApplicationController
   def create
     @medical_care = MedicalCare.new(medical_care_params)
     @medical_care.user_id = current_user.id
-    raise
-    @medical_care.save
-
+    @medical_care.save!
+    redirect_to profil_path
   end
 
   private
 
   def medical_care_params
-  params.require(:medical_care).permit(:title, :description, :pathology, medical_care_medicaments_attributes: [:frequence, :medicament_id])
+    params.require(:medical_care).permit(:title, :description, :pathology, medical_care_medicaments_attributes: [:frequence, :dose, :start_date, :end_date, :medicament_id])
   end
 end
