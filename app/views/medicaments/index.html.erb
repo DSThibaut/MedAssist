@@ -1,15 +1,36 @@
-<h1>Médicaments index</h1>
+<h1>Médicaments</h1>
 
-<p>--------------------------------</p>
-<% current_user.medical_cares.each do |traitement| %>
-  <% traitement.medicaments.each do |medicament| %>
-  <p><%= medicament.name %></p>
-  <p><%= medicament.unit %></p>
-  <p><%= medicament.stock %></p>
-    <%= link_to "Modifier le stock", edit_medicament_path(medicament.id) %>
-<p>--------------------------------</p>
-  <% end %>
-  <% end %>
+<section id="stock-actuel">
+  <h2>Stock actuel</h2>
 
-<%# <%= link_to 'Ajouter un médicament', _path %>
-<% console %>
+  <table>
+    <thead>
+      <tr>
+        <th>Nom du médicament</th>
+        <th>Quantité</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @medicaments.each do |medicament| %>
+        <tr>
+          <td><%= medicament.name %></td>
+          <td><%= medicament.unit %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+
+<section id="ajouter-medicament">
+  <h2>Ajouter un médicament</h2>
+
+  <%= form_with model: @medicament, url: medicaments_path, method: :post do |form| %>
+    <%= form.label :name, "Nom du médicament" %>
+    <%= form.text_field :name %>
+    <%= form.label :unit, "Type" %>
+
+    <%= form.select :unit, collection: Medicament::UNITS  %>
+    <%= form.submit "Ajouter" %>
+
+  <% end %>
+</section>
