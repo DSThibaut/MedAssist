@@ -1,42 +1,64 @@
 <h1>Accueil</h1>
 
-<section id="calendrier">
-  <h2>Calendrier</h2>
-
-
-<%= link_to "Profil", profil_path %>
-<%= link_to "RDV", appointments_path %>
-<%= link_to "Medicaments", medicaments_path %>
-
-<% console %>
-
-  <div class="calendar-container">
-    <div class="calendar-header">
-      <button id="prev-month-btn">&lt;</button>
-      <h3 id="current-month">Juin</h3>
-      <button id="next-month-btn">&gt;</button>
-    </div>
-    <div class="calendar-weeks">
-      <div class="week-header">
-        <span>L</span>
-        <span>M</span>
-        <span>Mer</span>
-        <span>J</span>
-        <span>V</span>
-        <span>S</span>
-        <span>D</span>
-      </div>
-      <div class="weeks-container">
-        <% (0..1).each do |week_offset| %>
-          <div class="week">
-            <% (0..6).each do |day_offset| %>
-              <div class="day">
-                <%= link_to((Date.today + (week_offset * 7) + day_offset).day, "#") %>
-              </div>
+<table>
+  <thead>
+    <tr>
+      <th colspan="7"> <%= @date_selected.strftime("%A") %> <%= Date::MONTHNAMES[@date_selected.month] %> <%= Date.current.year %></th>
+    </tr>
+    <tr>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+      <th>Sun</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_date = Date.current %>
+    <% padding_days = current_date.beginning_of_month.wday %>
+    <% days_in_month = Time.days_in_month(Date.current.month, Date.current.year) %>
+    <% all_days = (padding_days..padding_days + days_in_month - 1).to_a %>
+    <% all_days.in_groups_of(7, false).each do |week| %>
+      <tr>
+        <% week.each do |day| %>
+          <% current_day = current_date.beginning_of_month + day.days %>
+          <td>
+            <% if current_day.month == current_date.month %>
+              <%= link_to current_day.day, root_path(date: current_day), class: "btn btn-primary" %>
+            <% else %>
+              <%= current_day.day %>
             <% end %>
-          </div>
+          </td>
         <% end %>
-      </div>
-    </div>
-  </div>
-</section>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<p></p>
+  <p>- PRISES DU JOUR -</p>
+<% current_user.medical_cares.each do |traitement| %>
+  <%# <% traitement.medicament.stock %>
+  <% traitement.medical_care_medicaments.each do |traitement_medicament| %>
+  <br><%= traitement_medicament.medicament.name %> <br>
+  <%= traitement_medicament.dose.to_i %>
+  <%= traitement_medicament.medicament.unit %> <br>
+  <% end %>
+<% end %>
+<p>-------------------------------------------------------------------------</p>
+  <p> -RDV DU JOUR -</p>
+<% @appointments.each do |appointment| %>
+  <%# <% if appointment.date == Date.today %>
+  <%= appointment.medical_center.name %> <br>
+  <%= appointment.medical_center.address %> <br>
+  <%= appointment.date.strftime("%A %d %B %Y, %H:%M") %>
+  <%# <% end %>
+  <p>---------------------------------------</p>
+<% end %>
+
+<p></p>
+ <%= link_to "Accueil", root_path %>
+  <%= link_to "Profil", profil_path %>
+  <%= link_to "RDV", appointments_path %>
+  <%= link_to "Medicaments", medicaments_path %>
