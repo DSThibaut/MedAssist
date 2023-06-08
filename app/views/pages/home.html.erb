@@ -1,5 +1,7 @@
 <h1>Accueil</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<section id="calendrier">
+  <h2>Calendrier</h2>
 
 
 <%= link_to "Profil", profil_path %>
@@ -7,3 +9,34 @@
 <%= link_to "Medicaments", medicaments_path %>
 
 <% console %>
+
+  <div class="calendar-container">
+    <div class="calendar-header">
+      <button id="prev-month-btn">&lt;</button>
+      <h3 id="current-month">Juin</h3>
+      <button id="next-month-btn">&gt;</button>
+    </div>
+    <div class="calendar-weeks">
+      <div class="week-header">
+        <span>L</span>
+        <span>M</span>
+        <span>Mer</span>
+        <span>J</span>
+        <span>V</span>
+        <span>S</span>
+        <span>D</span>
+      </div>
+      <div class="weeks-container">
+        <% (0..1).each do |week_offset| %>
+          <div class="week">
+            <% (0..6).each do |day_offset| %>
+              <div class="day">
+                <%= link_to((Date.today + (week_offset * 7) + day_offset).day, "#") %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
