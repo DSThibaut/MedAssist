@@ -4,7 +4,6 @@ class MedicalCareMedicamentsController < ApplicationController
   end
 
   def update
-
     @medical_care_medicament = MedicalCareMedicament.find(params[:id])
     @medical_care_medicament.update(medical_care_medicament_params)
 

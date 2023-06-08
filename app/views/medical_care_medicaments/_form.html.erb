@@ -1,6 +1,6 @@
 <div class="border">
   <template data-add-medicament-target="template">
-    <%= f.simple_fields_for :medical_care_medicaments, MedicalCareMedicament.new do |medical_care_medicament_fields| %>
+    <%= f.simple_fields_for :medical_care_medicaments, medicaments do |medical_care_medicament_fields| %>
       <%= render partial: "medical_care_medicaments/medical_care_medicament_form", locals: {medical_care_medicament_fields: medical_care_medicament_fields} %>
     <% end %>
   </template>
