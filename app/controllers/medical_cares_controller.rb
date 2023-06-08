@@ -7,8 +7,11 @@ class MedicalCaresController < ApplicationController
   def create
     @medical_care = MedicalCare.new(medical_care_params)
     @medical_care.user_id = current_user.id
-    @medical_care.save
-    redirect_to profil_path
+    if @medical_care.save
+      redirect_to profil_path
+    else
+      render :new
+    end
   end
 
   def edit
