@@ -2,7 +2,6 @@
 
 <p>--------------------------------</p>
 <% @appointments.each do |appointment| %>
-<div>
   <p><%= appointment.medical_center.name %></p>
   <p><%= appointment.medical_center.address %></p>
   <p><%= appointment.date.strftime("%A %d %B %Y, %H:%M") %></p>
@@ -10,6 +9,6 @@
     <%= link_to 'Supprimer le RDV', delete_appointment_path(appointment.id), data: { turbo_method: :delete } %>
 <p>--------------------------------</p>
   <% end %>
-</div>
 
 <%= link_to 'Ajouter un RDV', medical_centers_path %>
+<%= link_to "Accueil", root_path %>
