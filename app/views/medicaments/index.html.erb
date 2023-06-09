@@ -14,7 +14,7 @@
       <% @medicaments.each do |medicament| %>
         <tr>
           <td><%= medicament.name %></td>
-          <td><%= medicament.unit %></td>
+          <td><%= medicament.stock %></td>
         </tr>
       <% end %>
     </tbody>
@@ -27,9 +27,8 @@
   <%= form_with model: @medicament, url: medicaments_path, method: :post do |form| %>
     <%= form.label :name, "Nom du médicament" %>
     <%= form.text_field :name %>
-    <%= form.label :unit, "Type" %>
-
-    <%= form.select :unit, collection: Medicament::UNITS  %>
+    <%= form.label :stock, "Stock" %>
+    <%= form.text_field :stock %>
     <%= form.submit "Ajouter" %>
 
   <% end %>
