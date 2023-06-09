@@ -10,4 +10,11 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "home";
+
+body {
+  background: #FEF7FF;
+}
+
+.toto {
+  color: blue;
+}
