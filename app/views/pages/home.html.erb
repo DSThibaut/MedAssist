@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th colspan="7"> <%= @date_selected.strftime("%A") %> <%= Date::MONTHNAMES[@date_selected.month] %> <%= Date.current.year %></th>
+      <th colspan="7"> <%= @date_selected.strftime("%A %d") %> <%= Date::MONTHNAMES[@date_selected.month] %> <%= Date.current.year %></th>
     </tr>
     <tr>
       <th>Mon</th>
