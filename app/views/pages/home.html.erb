@@ -51,12 +51,9 @@
 <p>-------------------------------------------------------------------------</p>
   <p> -RDV DU JOUR -</p>
 <% @appointments.each do |appointment| %>
-  <% date_rdv = appointment.date.strftime("%m/%d/%Y")%>
-    <% if date_rdv == Date.today.strftime("%m/%d/%Y") %>
     <%= appointment.medical_center.name %> <br>
     <%= appointment.medical_center.address %> <br>
     <%= appointment.date.strftime("%A %d %B %Y, %H:%M") %>
-    <% end %>
   <p>---------------------------------------</p>
 <% end %>
 
