@@ -1,6 +1,0 @@
-var updatedStock = <%= @medicament.stock %>;
-var medicamentId = <%= @medicament.id %>;
-
-var row = document.querySelector('#medicament-' + medicamentId);
-
-row.querySelector('td:nth-child(2)').textContent = updatedStock;
