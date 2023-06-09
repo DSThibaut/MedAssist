@@ -12,9 +12,11 @@
     </thead>
     <tbody>
       <% @medicaments.each do |medicament| %>
-        <tr>
+        <tr id="medicament-<%= medicament.id %>">
           <td><%= medicament.name %></td>
+          <td><%= link_to ' - ', decrement_medicament_path(medicament), class: "btn btn-md btn-primary", remote: true %></td>
           <td><%= medicament.stock %></td>
+          <td><%= link_to ' + ', increment_medicament_path(medicament), class: "btn btn-md btn-primary", remote: true %></td>
         </tr>
       <% end %>
     </tbody>
