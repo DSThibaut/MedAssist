@@ -32,7 +32,6 @@
             <% end %>
           </td>
         <% end %>
-
       </tr>
     <% end %>
   </tbody>
@@ -40,14 +39,11 @@
 <p></p>
 <p>-------------------------------------------------------------------------</p>
   <p>- PRISES DU JOUR -</p>
-<% current_user.medical_cares.each do |traitement| %>
-  <% date = Date.today.strftime("%m/%d/%Y") %>
-  <% if traitement.start_date.strftime("%m/%d/%Y") < date && traitement.end_date.strftime("%m/%d/%Y") > date %>
+<% @traitements.each do |traitement| %>
     <% traitement.medical_care_medicaments.each do |traitement_medicament| %>
     <br><%= traitement_medicament.medicament.name %> <br>
     <%= traitement_medicament.dose.to_i %>
     <%= traitement_medicament.medicament.unit %> <br>
-    <% end %>
   <% end %>
 <% end %>
 <p>-------------------------------------------------------------------------</p>
@@ -67,5 +63,3 @@
   <%= link_to "Profil", profil_path %>
   <%= link_to "RDV", appointments_path %>
   <%= link_to "Medicaments", medicaments_path %>
-
-<% console %>
