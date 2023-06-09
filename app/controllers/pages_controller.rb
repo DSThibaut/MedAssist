@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!
-  helper_method :rappel_medicament
+  helper_method :rappel_medicament, :medoc
 
   def home
      @appointments = Appointment.where(user_id: current_user.id)
@@ -10,6 +10,10 @@ class PagesController < ApplicationController
       @date_selected = Date.current
    end
 
+  end
+
+  def medoc(element)
+    
   end
 
   def rappel_medicament

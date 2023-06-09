@@ -43,10 +43,11 @@
 <% current_user.medical_cares.each do |traitement| %>
   <% date = Date.today.strftime("%m/%d/%Y") %>
   <% if traitement.start_date.strftime("%m/%d/%Y") < date && traitement.end_date.strftime("%m/%d/%Y") > date %>
-    <% traitement.medical_care_medicaments.each do |traitement_medicament| %>
-    <br><%= traitement_medicament.medicament.name %> <br>
+    <br><% traitement.medical_care_medicaments.each do |traitement_medicament| %>
+    <%= traitement_medicament.medicament.name %> <br>
+    <%= "Stock: #{traitement_medicament.medicament.stock}" %> <br>
     <%= traitement_medicament.dose.to_i %>
-    <%= traitement_medicament.medicament.unit %> <br>
+    <%= "#{traitement_medicament.medicament.unit} / #{traitement_medicament.frequence}" %> <br>
     <% end %>
   <% end %>
 <% end %>
