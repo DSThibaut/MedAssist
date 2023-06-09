@@ -38,6 +38,10 @@
   </tbody>
 </table>
 <p></p>
+<p>-------------------------------------------------------------------------</p>
+  <p>- PRISES DU JOUR -</p>
+<%= rappel_medicament %>
+<p>-------------------------------------------------------------------------</p>
   <p>- PRISES DU JOUR -</p>
 <% current_user.medical_cares.each do |traitement| %>
   <%# <% traitement.medicament.stock %>
@@ -50,11 +54,12 @@
 <p>-------------------------------------------------------------------------</p>
   <p> -RDV DU JOUR -</p>
 <% @appointments.each do |appointment| %>
-  <%# <% if appointment.date == Date.today %>
-  <%= appointment.medical_center.name %> <br>
-  <%= appointment.medical_center.address %> <br>
-  <%= appointment.date.strftime("%A %d %B %Y, %H:%M") %>
-  <%# <% end %>
+  <% date_rdv = appointment.date.strftime("%m/%d/%Y")%>
+    <% if date_rdv == Date.today.strftime("%m/%d/%Y") %>
+    <%= appointment.medical_center.name %> <br>
+    <%= appointment.medical_center.address %> <br>
+    <%= appointment.date.strftime("%A %d %B %Y, %H:%M") %>
+    <% end %>
   <p>---------------------------------------</p>
 <% end %>
 
