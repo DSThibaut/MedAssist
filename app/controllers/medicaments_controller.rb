@@ -3,6 +3,7 @@ class MedicamentsController < ApplicationController
 
   def index
     @medicaments = Medicament.all
+    @medicaments = Medicament.order(:id)
     @medicament = Medicament.new
   end
 
@@ -16,7 +17,7 @@ class MedicamentsController < ApplicationController
   def create
     @medicament = Medicament.new(medicament_params)
 
-    if @medicament.save
+    if @medicament.save 
       redirect_to medicaments_path, notice: "Le médicament a été ajouté avec succès."
     else
       render :new
@@ -31,6 +32,26 @@ class MedicamentsController < ApplicationController
       redirect_to medicament_path(@medicament), notice: "Le médicament a été mis à jour avec succès."
     else
       render :edit
+    end
+  end
+
+  def increment
+    @medicament = Medicament.find(params[:id])
+    @medicament.increment!(:stock)
+    @medicament.save!
+    respond_to do |format|
+      format.html { redirect_to medicaments_path }
+      format.json { head :no_content }
+    end
+  end
+
+  def decrement
+    @medicament = Medicament.find(params[:id])
+    @medicament.decrement!(:stock)
+    @medicament.save!
+    respond_to do |format|
+      format.html { redirect_to medicaments_path }
+      format.json { head :no_content }
     end
   end
 

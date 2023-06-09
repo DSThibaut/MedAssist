@@ -12,9 +12,11 @@
     </thead>
     <tbody>
       <% @medicaments.each do |medicament| %>
-        <tr>
+        <tr id="medicament-<%= medicament.id %>">
           <td><%= medicament.name %></td>
-          <td><%= medicament.unit %></td>
+          <td><%= link_to ' - ', decrement_medicament_path(medicament), class: "btn btn-md btn-primary", remote: true %></td>
+          <td><%= medicament.stock %></td>
+          <td><%= link_to ' + ', increment_medicament_path(medicament), class: "btn btn-md btn-primary", remote: true %></td>
         </tr>
       <% end %>
     </tbody>
@@ -27,10 +29,13 @@
   <%= form_with model: @medicament, url: medicaments_path, method: :post do |form| %>
     <%= form.label :name, "Nom du médicament" %>
     <%= form.text_field :name %>
-    <%= form.label :unit, "Type" %>
-
-    <%= form.select :unit, collection: Medicament::UNITS  %>
+    <%= form.label :stock, "Stock" %>
+    <%= form.text_field :stock %>
+    <%= form.label :unit, "Unité" %>
+    <%= form.select :unit, Medicament::UNITS %>
     <%= form.submit "Ajouter" %>
 
   <% end %>
 </section>
+
+<%= link_to "Accueil", root_path %>

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   resources :medicaments
+  get 'medicament/:id/increment', to: 'medicaments#increment', as: 'increment_medicament'
+  get 'medicament/:id/decrement', to: 'medicaments#decrement', as: 'decrement_medicament'
   get '/profil', to: 'dashboards#profil', as: "profil"
   delete '/profil/medical_cares/:id', to: 'medical_cares#destroy', as: 'delete_medical_care'
   delete '/appointments/:id', to: 'appointments#destroy', as: 'delete_appointment'
