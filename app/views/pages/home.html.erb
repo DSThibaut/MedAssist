@@ -39,11 +39,13 @@
 <p></p>
 <p>-------------------------------------------------------------------------</p>
   <p>- PRISES DU JOUR -</p>
+
 <% @traitements.each do |traitement| %>
-    <% traitement.medical_care_medicaments.each do |traitement_medicament| %>
-    <br><%= traitement_medicament.medicament.name %> <br>
+    <br><% traitement.medical_care_medicaments.each do |traitement_medicament| %>
+    <%= traitement_medicament.medicament.name %> <br>
+    <%= "Stock: #{traitement_medicament.medicament.stock}" %> <br>
     <%= traitement_medicament.dose.to_i %>
-    <%= traitement_medicament.medicament.unit %> <br>
+    <%= "#{traitement_medicament.medicament.unit} / #{traitement_medicament.frequence}" %> <br>
   <% end %>
 <% end %>
 <p>-------------------------------------------------------------------------</p>
