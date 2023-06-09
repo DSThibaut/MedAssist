@@ -3,13 +3,13 @@ class PagesController < ApplicationController
   helper_method :rappel_medicament, :medoc
 
   def home
-     @appointments = Appointment.where(user_id: current_user.id)
+    @appointments = Appointment.where(user_id: current_user.id)
     if params[:date].present?
       @date_selected = Date.parse(params[:date])
     else
       @date_selected = Date.current
-   end
-
+    end
+    @traitements = MedicalCare.where( "user_id = ? AND start_date <= ? AND end_date >= ?", current_user.id, @date_selected.strftime("%m/%d/%Y"), @date_selected.strftime("%m/%d/%Y") )
   end
 
   def medoc(element)
