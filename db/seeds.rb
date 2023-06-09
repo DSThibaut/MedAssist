@@ -11,11 +11,11 @@ User.create!(email: "test3@test.com", first_name: "Julie", last_name: "Dugland",
 User.create!(email: "test4@test.com", first_name: "Jacob", last_name: "Duchene", password: "password")
 User.create!(email: "test5@test.com", first_name: "Valérie", last_name: "Dubouleau", password: "password")
 puts "#{User.count} Users crées"
-Medicament.create!(name: "Doliprane", unit: "comprimé", stock: 100)
-Medicament.create!(name: "Daffalgan", unit: "ampoule", stock: 100)
-Medicament.create!(name: "Efferalgan", unit: "injection", stock: 100)
-Medicament.create!(name: "Flector", unit: "pommade", stock: 100)
-Medicament.create!(name: "Subutex", unit: "comprimé", stock: 100)
+Medicament.create!(name: "Doliprane", unit: "Comprimé", stock: 100)
+Medicament.create!(name: "Daffalgan", unit: "Ampoule", stock: 100)
+Medicament.create!(name: "Efferalgan", unit: "Injection", stock: 100)
+Medicament.create!(name: "Flector", unit: "Pommade", stock: 100)
+Medicament.create!(name: "Subutex", unit: "Comprimé", stock: 100)
 puts "#{Medicament.count} Medicaments crées"
 MedicalCenter.create!(name: "Clinique du lac", address: "20 rue des capucins 69001 Lyon", phone_number: "0606060606")
 MedicalCenter.create!(name: "Hopital des malades", address: "12 avenue général leclerc 69160", phone_number: "07-07-07-07-07")
