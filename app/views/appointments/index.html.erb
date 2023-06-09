@@ -1,14 +1,40 @@
-<h1>Mes Rendez-vous</h1>
+<div class="container-rdvavenir">
 
-<p>--------------------------------</p>
-<% @appointments.each do |appointment| %>
-  <p><%= appointment.medical_center.name %></p>
-  <p><%= appointment.medical_center.address %></p>
-  <p><%= appointment.date.strftime("%A %d %B %Y, %H:%M") %></p>
-    <%= link_to "Editer le RDV", edit_appointment_path(appointment.id) %>
-    <%= link_to 'Supprimer le RDV', delete_appointment_path(appointment.id), data: { turbo_method: :delete } %>
-<p>--------------------------------</p>
-  <% end %>
+  <div class="barre-separation"></div>
 
-<%= link_to 'Ajouter un RDV', medical_centers_path %>
-<%= link_to "Accueil", root_path %>
+
+    <% @appointments.each do |appointment| %>
+  <div class="rdv-medical">
+
+      <div class="rdv-info">
+
+        <div class="rdv-content">
+          <div class="nom-adresse-rdv">
+            <h5><%= appointment.medical_center.name %></h5>
+            <p><%= appointment.medical_center.address %></p>
+          </div>
+
+          <div class="date-rdv">
+            <p><%= appointment.date.strftime("%d %B %Y, %H:%M") %></p>
+          </div>
+        </div>
+
+        <div class="btn-suppr-modif-rdv">
+          <%= link_to image_tag("editer_ico.svg"), edit_appointment_path(appointment.id) %>
+          <%= link_to image_tag("supprimer_ico.svg"), delete_appointment_path(appointment.id), data: { turbo_method: :delete } %>
+        </div>
+
+      </div>
+
+  </div>
+    <% end %>
+
+
+  <div class="barre-separation"></div>
+
+  <div class="ajouter-rdv">
+    <%= link_to 'Ajouter un RDV', medical_centers_path, id: "ajouter-rdv-btn" %>
+  </div>
+
+</div>
+
