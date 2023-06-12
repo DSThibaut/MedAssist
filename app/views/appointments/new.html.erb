@@ -1,10 +1,27 @@
-<h1>Ajouter un RDV</h1>
+<div class="container-page-rdv">
 
-<div>
-  <p><%= @medical_center.name %></p>
-  <p><%= @medical_center.address %></p>
-  <%= simple_form_for [@medical_center, @appointment] do |f| %>
-    <%= f.input :date, required: true%>
-    <%= f.submit "Créer le RDV", class: "btn btn-primary" %>
+  <div class="barre-separation"></div>
+
+  <p>Détails du rendez-vous :</p>
+
+  <div class="details-rdv-gris">
+
+    <div class="custom-input-bar">
+      <%= image_tag("barre-texte.svg", alt: "Barre de saisie") %>
+      <div class="custom-input-text"><%= @medical_center.name %></div>
+    </div>
+
+    <div class="custom-input-bar">
+      <%= image_tag("barre-texte.svg", alt: "Barre de saisie") %>
+      <div class="custom-input-text"><p><%= @medical_center.address %></p></div>
+    </div>
+
+    <%= simple_form_for [@medical_center, @appointment] do |f| %>
+    <%= f.input :date, required: true, input_html: { class: "custom-input-date" } %>
+
+  </div>
+
+    <%= f.submit "Ajouter", class: "btn btn-primary" %>
   <% end %>
+
 </div>

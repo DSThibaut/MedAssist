@@ -1,0 +1,48 @@
+.custom-input {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-input input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #F2F2F2;
+}
+
+.custom-input-bar {
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.custom-input-bar img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+.custom-input-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #000000;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.custom-input-date {
+  background-image: url('barre-texte.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-left: 15px;
+}
+
+.details-rdv-gris {
+  border-color: #cac4d0;
+  border-style: solid;
+  border-width: 1.399999976158142px;
+  border-radius: 12px;
+  background-color: #f3edf8;
+}

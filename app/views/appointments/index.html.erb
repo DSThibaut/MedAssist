@@ -1,5 +1,17 @@
 <div class="container-rdvavenir">
 
+  <div class="navbar-rdvavenir">
+    <div class="navbar-rdvavenir-left">
+      <%= link_to image_tag("Icon-barre-options.svg", alt: "Bouton gauche"), "#" %>
+    </div>
+    <div class="navbar-rdvavenir-title">
+      <h1>Rendez-vous à venir</h1>
+    </div>
+    <div class="navbar-rdvavenir-right">
+      <%= link_to image_tag("icon-barre-fermer.svg", alt: "Bouton droit"), "#" %>
+    </div>
+  </div>
+
   <div class="barre-separation"></div>
 
 
@@ -29,12 +41,10 @@
   </div>
     <% end %>
 
-
-  <div class="barre-separation"></div>
+  <div class="barre-separation" id="barreFooter"></div>
 
   <div class="ajouter-rdv">
     <%= link_to 'Ajouter un RDV', medical_centers_path, id: "ajouter-rdv-btn" %>
   </div>
 
 </div>
-
