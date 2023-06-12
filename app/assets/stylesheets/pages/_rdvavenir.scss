@@ -1,3 +1,48 @@
+/* Navbar spécifique à la page */
+
+.navbar-rdvavenir {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 390px;
+  height: 61px;
+  background-color: #FEF7FF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  // box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-rdvavenir-left,
+.navbar-rdvavenir-right {
+  width: 24px;
+  height: 24px;
+}
+
+.navbar-rdvavenir-title {
+  flex: 1;
+  text-align: center;
+}
+
+.navbar-rdvavenir-title h1 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #000000;
+}
+
+.navbar-rdvavenir-left img {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.navbar-rdvavenir-right img {
+  position: absolute;
+  top: 19px;
+  right: 14px;
+}
+
 /* Div englobante */
 
 .container-rdvavenir {
@@ -20,21 +65,27 @@
 /* Ajouter RDV */
 
 .ajouter-rdv {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   text-align: center;
-  margin-top: 0px;
+  padding: 1rem;
+  background-color: #FEF7FF;
+  padding-bottom: 21px;
 
   #ajouter-rdv-btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 6px 0px;
+    width: 156px;
+    height: 35px;
     background-color: #D0BCFF;
     color: #000000;
     text-decoration: none;
     border-radius: 8px;
     transition: background-color 0.3s;
-
-    // &:hover {
-    //   background-color: #0056b3;
-    // }
+    text-align: center;
+    font-size: 14px;
   }
 }
 
@@ -42,16 +93,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 0.6rem;
+  max-width: 344px;
   .rdv-content {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.4rem;
   }
 }
 
 .nom-adresse-rdv {
   flex: 1;
+    p {
+      font-size: 0.9rem;
+    }
+
+    H5 {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
 }
 
 /* Div date-rdv */
@@ -59,6 +119,7 @@
 .date-rdv {
   p {
     margin-bottom: 0;
+    font-size: 0.8rem;
   }
 }
 
@@ -66,6 +127,7 @@
 .btn-suppr-modif-rdv {
   display: flex;
   gap: 16px; // Espacement entre les boutons Supprimer et Editer
+  margin : 5px;
 }
 
 /* Barre de séparation */
@@ -76,6 +138,14 @@
   width: 320px;
   height: 0.8px;
   background-color: #CFBCFF;
-  margin-top: 8px;
+  margin-top: 2px;
   margin-bottom: 8px;
+}
+
+#barreFooter {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 0.8px;
 }

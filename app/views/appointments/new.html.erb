@@ -1,10 +1,46 @@
-<h1>Ajouter un RDV</h1>
+  <div class="navbar-rdv-ajout">
+    <div class="navbar-rdvavenir-left">
+      <%= link_to image_tag("Icon-barre-options.svg", alt: "Bouton gauche"), "#" %>
+    </div>
+    <div class="navbar-rdvavenir-title">
+      <h1>Nouveau RDV</h1>
+    </div>
+    <div class="navbar-rdvavenir-right">
+      <%= link_to image_tag("icon-barre-fermer.svg", alt: "Bouton droit"), "#" %>
+    </div>
+  </div>
 
-<div>
-  <p><%= @medical_center.name %></p>
-  <p><%= @medical_center.address %></p>
-  <%= simple_form_for [@medical_center, @appointment] do |f| %>
-    <%= f.input :date, required: true%>
-    <%= f.submit "Créer le RDV", class: "btn btn-primary" %>
-  <% end %>
+<div class="container-page-rdv" data-controller="flatpickr">
+
+  <div class="barre-separation-rdv-new"></div>
+
+  <div id="details-rdv-titre">
+    <p>Détails du rendez-vous :</p>
+  </div>
+
+  <div class="details-rdv-gris">
+
+    <div class="champ-prerempli-rdv">
+      <%= @medical_center.name %>
+    </div>
+
+    <div class="champ-prerempli-rdv">
+      <p><%= @medical_center.address %></p>
+    </div>
+
+    <div class="date-champ">
+      <%= simple_form_for [@medical_center, @appointment] do |f| %>
+        <%= f.input :date, as: :string,
+                          required: false,
+                          input_html: { id: "date", data: { flatpickr_target: "date" } } %>
+    </div>
+
+  </div>
+    <div class="emplacements-btn-rdv">
+      <%= f.submit "Ajouter", class: "btn-ajouter-rdv" %>
+      <%= link_to "Annuler", appointments_path, class: "btn-annuler-rdv" %>
+
+    </div>
+      <% end %>
+
 </div>

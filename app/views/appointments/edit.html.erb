@@ -1,10 +1,22 @@
-<h1>Modifier votre RDV</h1>
+<div class="global-container">
 
-<div>
+  <div class="barre-separation"></div>
+
+  <p>Détails du rendez-vous :</p>
+
+  <div class="carre-gris-rdv">
+
+  <p>Nom du centre :</p>
   <p><%= @medical_center.name %></p>
+
+  <p>Adresse :</p>
   <p><%= @medical_center.address %></p>
+
   <%= simple_form_for [@medical_center, @appointment] do |f| %>
     <%= f.input :date, required: true%>
-    <%= f.submit "Modifier le RDV", class: "btn btn-primary" %>
+    <%= f.submit "Sauvegarder", class: "btn btn-primary" %>
   <% end %>
+
+  </div>
+
 </div>
