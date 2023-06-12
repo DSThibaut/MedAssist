@@ -16,8 +16,7 @@ class MedicamentsController < ApplicationController
 
   def create
     @medicament = Medicament.new(medicament_params)
-
-    if @medicament.save 
+    if @medicament.save
       redirect_to medicaments_path, notice: "Le médicament a été ajouté avec succès."
     else
       render :new

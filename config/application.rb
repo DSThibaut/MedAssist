@@ -17,6 +17,9 @@ module MedAssist
     config.load_defaults 7.0
 
     # Configuration for the application, engines, and railties goes here.
+    I18n.load_path += Dir[Rails.root.join('lib', 'locale', '*.{rb,yml}')]
+    I18n.available_locales = [:fr]
+    config.i18n.default_locale = :fr
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
