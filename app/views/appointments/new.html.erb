@@ -33,6 +33,8 @@
         <%= f.input :date, as: :string,
                           required: false,
                           input_html: { id: "date", data: { flatpickr_target: "date" } } %>
+        <%= f.input :hour, collection: 0..23, required: false, label: "Heure" %>
+        <%= f.input :minutes, collection: [0, 10, 20, 30, 40, 50], required: false %>
     </div>
 
   </div>
