@@ -1,0 +1,115 @@
+@import "flatpickr/dist/flatpickr";
+
+.navbar-rdv-ajout {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 390px;
+  height: 61px;
+  background-color: #FEF7FF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  // box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.barre-separation-rdv-new::after {
+  content: "";
+  display: block;
+  width: 320px;
+  height: 0.8px;
+  background-color: #CFBCFF;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  margin-left: 32px;
+}
+
+.custom-input {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-input-bar {
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.details-rdv-gris {
+  border-color: #cac4d0;
+  border-style: solid;
+  border-width: 1.399999976158142px;
+  border-radius: 12px;
+  background-color: #f3edf8;
+  padding: 16px;
+  max-width: 352px;
+  position: relative;
+  left: 5%;
+    p{
+      color: #0e0000b2;
+    }
+}
+
+.form-control {
+  border-radius: 4px;
+  background-color: #E8DEF8;
+  padding: 10px;
+  border: none;
+  width: 288px;
+  height: 41px;
+  box-shadow: 0px 4px 5px -3px rgba(84,84,84,0.5);
+  -webkit-box-shadow: 0px 4px 5px -3px rgba(84,84,84,0.5);
+  -moz-box-shadow: 0px 4px 5px -3px rgba(84,84,84,0.5);
+}
+
+.champ-prerempli-rdv {
+  margin-bottom: 8px;
+}
+
+.date-champ {
+  // display: grid;
+}
+
+.container-page-rdv {
+  max-width: 352px;
+}
+
+#details-rdv-titre {
+  p {
+    margin-inline-start: 24px;
+    font-size: 16px;
+}
+}
+
+.btn-ajouter-rdv {
+  width: 149px;
+  height: 42px;
+  border-radius: 8px;
+  background-color: #D0BCFF;
+  color: #000000;
+  font-size: 16px;
+  border: none;
+}
+
+.btn-annuler-rdv {
+  display: flex;
+  width: 149px;
+  height: 42px;
+  border-radius: 8px;
+  background-color: #D0BCFF;
+  color: #000000;
+  font-size: 16px;
+  border: none;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.emplacements-btn-rdv {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  max-width: 341px;
+  margin-left: 32px;
+  padding-top: 24px;
+}
