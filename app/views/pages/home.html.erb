@@ -38,14 +38,15 @@
 </table>
 <p></p>
   <p>- PRISES DU JOUR -</p>
-
+<div data-controller="prise-medicament">
 <% @traitements.each do |traitement| %>
+
   <%= traitement.title %> <br>
-  <br><% traitement.medical_care_medicaments.each do |traitement_medicament| %>
-  <%= traitement_medicament.medicament.name %> <br>
-  <%= "Stock: #{traitement_medicament.medicament.stock}" %> <br>
-  <%= traitement_medicament.dose.to_i %>
-  <%= "#{traitement_medicament.medicament.unit} / #{traitement_medicament.frequence}" %> <br>
+    <br><% traitement.medical_care_medicaments.each do |traitement_medicament| %>
+    <%= traitement_medicament.medicament.name %> <br>
+    <%= traitement_medicament.dose.to_i %>
+    <%= "#{traitement_medicament.medicament.unit} / jour" %> <br>
+    <%= button_to "#{dose(traitement_medicament)}", class: "btn btn-primary", data: {action: 'click->prise-medicament#prise'} %>
   <% end %>
   <p>---------------------------------------</p>
 <% end %>
@@ -63,3 +64,5 @@
   <%= link_to "Profil", profil_path %>
   <%= link_to "RDV", appointments_path %>
   <%= link_to "Medicaments", medicaments_path %>
+
+  <% console %>
