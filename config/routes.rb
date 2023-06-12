@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   resources :profil do
     collection do
       resources :medical_cares do
-        resources :medical_care_medicaments
+        resources :medical_care_medicaments do
+          get :taken
+        end
       end
     end
   end
