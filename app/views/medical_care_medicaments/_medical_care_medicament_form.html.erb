@@ -1,5 +1,4 @@
 <div data-new-record="<%= medical_care_medicament_fields.object.new_record? %>">
   <%= medical_care_medicament_fields.association :medicament %>
   <%= medical_care_medicament_fields.input :dose %>
-  <%= medical_care_medicament_fields.select :frequence, MedicalCareMedicament.frequences.keys %>
 </div>

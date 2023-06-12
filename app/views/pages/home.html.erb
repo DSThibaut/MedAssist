@@ -37,18 +37,19 @@
   </tbody>
 </table>
 <p></p>
-<p>-------------------------------------------------------------------------</p>
   <p>- PRISES DU JOUR -</p>
 
 <% @traitements.each do |traitement| %>
-    <br><% traitement.medical_care_medicaments.each do |traitement_medicament| %>
-    <%= traitement_medicament.medicament.name %> <br>
-    <%= "Stock: #{traitement_medicament.medicament.stock}" %> <br>
-    <%= traitement_medicament.dose.to_i %>
-    <%= "#{traitement_medicament.medicament.unit} / #{traitement_medicament.frequence}" %> <br>
+  <%= traitement.title %> <br>
+  <br><% traitement.medical_care_medicaments.each do |traitement_medicament| %>
+  <%= traitement_medicament.medicament.name %> <br>
+  <%= "Stock: #{traitement_medicament.medicament.stock}" %> <br>
+  <%= traitement_medicament.dose.to_i %>
+  <%= "#{traitement_medicament.medicament.unit} / #{traitement_medicament.frequence}" %> <br>
   <% end %>
+  <p>---------------------------------------</p>
 <% end %>
-<p>-------------------------------------------------------------------------</p>
+  <p>---------------------------------------</p>
   <p> -RDV DU JOUR -</p>
 <% @appointments.each do |appointment| %>
     <%= appointment.medical_center.name %> <br>
