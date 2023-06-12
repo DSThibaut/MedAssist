@@ -14,7 +14,6 @@
   <%= traitement_medicament.dose.to_i %>
   <%= traitement_medicament.medicament.unit.pluralize %>
   <%= traitement_medicament.frequence %>
-  <%# <%= link_to "Modifier la prise", edit_medical_care_medical_care_medicament_path(traitement, traitement_medicament) %>
   <%= link_to "Supprimer le medicament", delete_medical_care_medicament_path(traitement.id, traitement_medicament.id), data: {turbo_method: :delete} %>
   <br>
   <% end %>
