@@ -16,6 +16,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
     @appointment.user = current_user
     @appointment.medical_center_id = params[:medical_center_id]
+    @appointment.update(date: @appointment.date + appointment_params[:hour].to_i.hour + appointment_params[:minutes].to_i.minutes)
 
     if @appointment.save!
       redirect_to appointments_path
@@ -44,6 +45,6 @@ class AppointmentsController < ApplicationController
   private
 
   def appointment_params
-    params.require(:appointment).permit(:date, :medical_center_id)
+    params.require(:appointment).permit(:date, :medical_center_id, :hour, :minutes)
   end
 end

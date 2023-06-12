@@ -1,22 +1,50 @@
-<div class="global-container">
+<div class="navbar-rdv-ajout">
 
-  <div class="barre-separation"></div>
-
-  <p>Détails du rendez-vous :</p>
-
-  <div class="carre-gris-rdv">
-
-  <p>Nom du centre :</p>
-  <p><%= @medical_center.name %></p>
-
-  <p>Adresse :</p>
-  <p><%= @medical_center.address %></p>
-
-  <%= simple_form_for [@medical_center, @appointment] do |f| %>
-    <%= f.input :date, required: true%>
-    <%= f.submit "Sauvegarder", class: "btn btn-primary" %>
-  <% end %>
-
+  <div class="navbar-rdvavenir-left">
+    <%= link_to image_tag("Icon-barre-options.svg", alt: "Bouton gauche"), "#" %>
   </div>
+  <div class="navbar-rdvavenir-title">
+    <h1>Modifier le RDV</h1>
+  </div>
+  <div class="navbar-rdvavenir-right">
+    <%= link_to image_tag("icon-barre-fermer.svg", alt: "Bouton droit"), "#" %>
+  </div>
+
+</div>
+
+<div class="container-page-modif-rdv" data-controller="flatpickr">
+
+  <div class="barre-separation-rdv-new"></div>
+
+  <div id="details-rdv-titre">
+    <p>Détails du rendez-vous :</p>
+  </div>
+
+  <div class="details-rdv-gris">
+
+    <div class="champ-prerempli-rdv">
+      <%= @medical_center.name %>
+    </div>
+
+    <div class="champ-prerempli-rdv">
+      <p><%= @medical_center.address %></p>
+    </div>
+
+    <div class="date-champ">
+      <%= simple_form_for [@medical_center, @appointment] do |f| %>
+        <%= f.input :date, as: :string,
+                          required: false,
+                          input_html: { id: "date", data: { flatpickr_target: "date" } } %>
+        <%= f.input :hour, collection: 0..23, required: false, label: "Heure" %>
+        <%= f.input :minutes, collection: [0, 10, 20, 30, 40, 50], required: false %>
+    </div>
+  </div>
+
+    <div class="emplacements-btn-rdv">
+      <%= f.submit "Sauvegarder", class: "btn-ajouter-rdv" %>
+      <%= link_to "Annuler", appointments_path, class: "btn-annuler-rdv" %>
+
+    </div>
+      <% end %>
 
 </div>

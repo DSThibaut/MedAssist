@@ -6,15 +6,10 @@ export default class extends Controller {
   static targets = ["date"]
 
   connect() {
-    flatpickr(this.dateTarget, {
-      minDate: "today",
-      inline: false,
-      enableTime: true,
-
-      dateFormat: "d-m-Y"
-      // "disable": bookings,
-    })
-
-
+      flatpickr(this.dateTarget, {
+        minDate: "today",
+        inline: false,
+        dateFormat: "d-m-Y"
+      })
   }
 }
