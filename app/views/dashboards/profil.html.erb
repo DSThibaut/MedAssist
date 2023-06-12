@@ -13,10 +13,10 @@
     <%= translate_month(traitement.start_date.strftime("%B")) %>
     <%= traitement.start_date.strftime("%Y")%></p>
   <p>Fin du traitement:
-    <%= translate_day(traitement.start_date.strftime("%A")) %>
-      <%= traitement.start_date.strftime("%d") %>
-      <%= translate_month(traitement.start_date.strftime("%B")) %>
-      <%= traitement.start_date.strftime("%Y")%></p>
+    <%= translate_day(traitement.end_date.strftime("%A")) %>
+      <%= traitement.end_date.strftime("%d") %>
+      <%= translate_month(traitement.end_date.strftime("%B")) %>
+      <%= traitement.end_date.strftime("%Y")%></p>
   <% traitement.medical_care_medicaments.each do |traitement_medicament| %>
   <%= "#{traitement_medicament.medicament.name}," %>
   <%= traitement_medicament.dose.to_i %>
