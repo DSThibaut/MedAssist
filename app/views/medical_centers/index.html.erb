@@ -5,6 +5,7 @@
 <div>
 <p><%= medical_center.name %></p>
 <p><%= medical_center.address %></p>
+<p><%= medical_center.phone_number %></p>
   <%= link_to "Prendre rendez-vous ici", new_medical_center_appointment_path(medical_center.id) %>
 <p>--------------------------------</p>
 <% end %>

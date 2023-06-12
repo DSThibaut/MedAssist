@@ -1,26 +1,28 @@
-<h1>Dashboard</h1>
-<h3>Mes Traitements</h3>
 
+<h1>Mon profil</h1>
+<p></p>
+<h3>Mes Patients</h3>
 
 <p>---------------------------------------</p>
 <% current_user.medical_cares.each do |traitement| %>
   <p><%= traitement.title %></p>
+  <p><%= traitement.description %></p>
   <p>Début du traitement: <%= traitement.start_date.strftime("%A %d %B %Y") %></p>
   <p>Fin du traitement: <%= traitement.end_date.strftime("%A %d %B %Y") %></p>
   <% traitement.medical_care_medicaments.each do |traitement_medicament| %>
-  <%= traitement_medicament.medicament.name %>
+  <%= "#{traitement_medicament.medicament.name}," %>
   <%= traitement_medicament.dose.to_i %>
-  <%= traitement_medicament.medicament.unit %>
+  <%= traitement_medicament.medicament.unit.pluralize %>
   <%= traitement_medicament.frequence %>
-  <%= link_to "Modifier la prise", edit_medical_care_medical_care_medicament_path(traitement, traitement_medicament) %>
+  <%# <%= link_to "Modifier la prise", edit_medical_care_medical_care_medicament_path(traitement, traitement_medicament) %>
   <%= link_to "Supprimer le medicament", delete_medical_care_medicament_path(traitement.id, traitement_medicament.id), data: {turbo_method: :delete} %>
   <br>
   <% end %>
   <%= link_to "Ajouter un medicament", new_medical_care_medical_care_medicament_path(traitement.id)  %>
-  <%= link_to "Modifier le traitement", edit_medical_care_path(traitement.id)  %>
-  <%= link_to "Supprimer le traitement", delete_medical_care_path(traitement.id), data: {turbo_method: :delete} %>
+  <%= link_to "Modifier le traitement du patient", edit_medical_care_path(traitement.id)  %>
+  <%= link_to "Supprimer ce patient", delete_medical_care_path(traitement.id), data: {turbo_method: :delete} %>
 <p>---------------------------------------</p>
 <% end %>
 
- <%= link_to "Ajouter un Traitement", new_medical_care_path %>
+ <%= link_to "Ajouter un Patient", new_medical_care_path %>
  <%= link_to "Accueil", root_path %>
