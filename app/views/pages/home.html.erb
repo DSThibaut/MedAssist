@@ -1,43 +1,15 @@
 <h1>Accueil</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="7"> <%= @date_selected.strftime("%A %d") %> <%= Date::MONTHNAMES[@date_selected.month] %> <%= Date.current.year %></th>
-    </tr>
-    <tr>
-      <th>Mon</th>
-      <th>Tue</th>
-      <th>Wed</th>
-      <th>Thu</th>
-      <th>Fri</th>
-      <th>Sat</th>
-      <th>Sun</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% current_date = Date.current %>
-    <% padding_days = current_date.beginning_of_month.wday %>
-    <% days_in_month = Time.days_in_month(Date.current.month, Date.current.year) %>
-    <% all_days = (padding_days..padding_days + days_in_month - 1).to_a %>
-    <% all_days.in_groups_of(7, false).each do |week| %>
-      <tr>
-        <% week.each do |day| %>
-          <% current_day = current_date.beginning_of_month + day.days %>
-          <td>
-            <% if current_day.month == current_date.month %>
-              <%= link_to current_day.day, root_path(date: current_day), class: "btn btn-primary" %>
-            <% else %>
-              <%= current_day.day %>
-            <% end %>
-          </td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<p></p>
-  <p>- PRISES DU JOUR -</p>
+<br>
+<% (0..15).each do |i| %>
+  <% date = (Date.today + i.day) %>
+  <%= link_to request.params.merge(date: date ) do %>
+    <%= translate_day(date.strftime("%a")) %>
+    <%= date.strftime("%d") %>
+  <% end %>
+<% end %>
+<br>
+<br>
+<p>- PRISES DU JOUR -</p>
 <div data-controller="prise-medicament">
 <% @traitements.each do |traitement| %>
 
@@ -64,5 +36,3 @@
   <%= link_to "Profil", profil_path %>
   <%= link_to "RDV", appointments_path %>
   <%= link_to "Medicaments", medicaments_path %>
-
-  <% console %>

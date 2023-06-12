@@ -8,6 +8,7 @@ class PagesController < ApplicationController
     else
       @date_selected = Date.current
     end
+    
     @traitements = MedicalCare.where( "user_id = ? AND start_date <= ? AND end_date >= ?", current_user.id, @date_selected.strftime("%m/%d/%Y"), @date_selected.strftime("%m/%d/%Y") )
     rdv = Appointment.where(user_id: current_user)
     @appointments = []
