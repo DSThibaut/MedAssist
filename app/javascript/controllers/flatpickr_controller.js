@@ -9,6 +9,8 @@ export default class extends Controller {
     flatpickr(this.dateTarget, {
       minDate: "today",
       inline: false,
+      enableTime: true,
+
       dateFormat: "d-m-Y"
       // "disable": bookings,
     })
