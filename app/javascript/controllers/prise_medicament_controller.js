@@ -6,6 +6,7 @@ export default class extends Controller {
   }
 
   prise(event){
-    console.log("je suis la")
+    event.preventDefault();
+    console.log(event,"je suis la")
   }
 }
