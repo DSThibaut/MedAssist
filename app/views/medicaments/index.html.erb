@@ -1,41 +1,60 @@
-<h1>Médicaments</h1>
-
-<section id="stock-actuel">
-  <h2>Stock actuel</h2>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Nom du médicament</th>
-        <th>Quantité</th>
-      </tr>
-    </thead>
+<div class="container-medicaments">
+  <div class="barre-separation-medicament"></div>
+  <div class="titre-stock-actuel"><p>Stock actuel</p></div>
+  <div class="barre-separation-medicament"></div>
     <tbody>
-      <% @medicaments.each do |medicament| %>
-        <tr id="medicament-<%= medicament.id %>">
-          <td><%= medicament.name %></td>
-          <td><%= link_to ' - ', decrement_medicament_path(medicament), class: "btn btn-md btn-primary", remote: true %></td>
-          <td><%= medicament.stock %></td>
-          <td><%= link_to ' + ', increment_medicament_path(medicament), class: "btn btn-md btn-primary", remote: true %></td>
-        </tr>
-      <% end %>
+      <div class="medicaments-card">
+        <% @medicaments.each do |medicament| %>
+          <div class="info-medicaments">
+
+              <div class="medicament-nom">
+                <td><%= medicament.name.upcase %></td>
+              </div>
+
+              <div class="moins-quantite-plus">
+                <div class="btn-moins">
+                  <td><%= link_to image_tag("Icone-moins.svg"), decrement_medicament_path(medicament), remote: true %></td>
+                </div>
+
+                <div class="stock-chiffre">
+                  <td><%= medicament.stock %></td>
+                </div>
+
+                <div class="btn-plus">
+                  <td><%= link_to image_tag("Icone-plus.svg"), increment_medicament_path(medicament), remote: true %></td>
+                </div>
+              </div>
+
+          </div>
+
+        <% end %>
+      </div>
     </tbody>
-  </table>
-</section>
 
-<section id="ajouter-medicament">
-  <h2>Ajouter un médicament</h2>
-
-  <%= form_with model: @medicament, url: medicaments_path, method: :post do |form| %>
-    <%= form.label :name, "Nom du médicament" %>
-    <%= form.text_field :name %>
-    <%= form.label :stock, "Stock" %>
-    <%= form.text_field :stock %>
-    <%= form.label :unit, "Unité" %>
-    <%= form.select :unit, Medicament::UNITS %>
-    <%= form.submit "Ajouter" %>
-
-  <% end %>
-</section>
+  <div class="ajouter-medicament">
+    <div class="barre-separation-medicament"></div>
+      <div class="titre-stock-actuel"><p>Ajouter un médicament</p></div>
+        <div class="barre-separation-medicament"></div>
+          <%= form_with model: @medicament, url: medicaments_path, method: :post do |form| %>
+            <div class="form">
+              <div class="form-name">
+                <%= form.label :name, "Nom" %>
+                <%= form.text_field :name %>
+              </div>
+              <div class="form-stock">
+                <%= form.label :stock, "Stock" %>
+                <%= form.text_field :stock %>
+              </div>
+              <div class="form-unit">
+                <%= form.label :unit, "Unité" %>
+                <%= form.select :unit, Medicament::UNITS %>
+              </div>
+              <div class="ajouter-medicament" id="ajouter-medicament-btn">
+                <%= form.submit "Ajouter", id:"ajouter-medicament-btn" %>
+              </div>
+            </div>
+            <% end %>
+  </div>
+</div>
 
 <%= link_to "Accueil", root_path %>
