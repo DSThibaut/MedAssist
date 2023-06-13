@@ -1,0 +1,127 @@
+.carte-prise-rdv {
+  // display: flex;
+  border-color: #cac4d0;
+  border-style: solid;
+  border-width: 1.399999976158142px;
+  border-radius: 12px;
+  margin-top: 16px;
+  padding-left: 8px;
+  padding-right: 16px;
+  padding-top: 8px;
+  padding-bottom: 4px;
+  background-color: #FEF7FF;
+}
+
+.btn-ajouter-a-mes-rdv {
+  display: flex;
+}
+
+.adresse-centre-rdv {
+  display: flex;
+  font-size: 14px;
+}
+
+.tel-centre-rdv {
+  display: flex;
+  font-size: 14px;
+}
+
+.titre-centre-rdv {
+  // font-size: 16px;
+}
+
+.btn-ajouter-a-mes-rdv {
+  display: flex;
+  width: 136px;
+  height: 30px;
+  border-radius: 8px;
+  background-color: #D0BCFF;
+  color: #000000;
+  font-size: 14px;
+  border: none;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    text-decoration: none;
+    color: #000000;
+  }
+}
+
+.flex-container-rdv {
+  display: flex;
+  justify-content: space-between;
+  // padding: 8px;
+}
+
+.prise-rdv-container {
+  width: 359px;
+  margin-left: 16px;
+}
+
+.special-background {
+  background-color: #F3EDF7;
+}
+
+.section-btn-mes-rdv {
+display: grid;
+justify-content: center;
+margin-top: 16px;
+}
+
+.btn-mes-rdv {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 188px;
+  height: 31px;
+  background-color: #7F67BE;
+  border-radius: 100px;
+  color: #FFFFFF;
+  text-decoration: none;
+  margin-left: auto;
+  margin-right: auto;
+
+  a {
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+}
+
+.barre-separation-rdv-prise::after {
+  content: "";
+  display: block;
+  width: 238px;
+  height: 0.8px;
+  background-color: #CFBCFF;
+  margin-top: 24px;
+  margin-bottom: 16px;
+  margin-left: 60px;
+}
+
+.texte-labos {
+  display: grid;
+  justify-items: center;
+}
+
+.barre-separation-rdv-prise-top::after {
+  content: "";
+  display: block;
+  width: 238px;
+  height: 0.8px;
+  background-color: #CFBCFF;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-left: 60px;
+}
+
+#barre-separation-bot::after {
+  content: "";
+  display: block;
+  width: 238px;
+  height: 0.8px;
+  background-color: #CFBCFF;
+  margin-top: -6px;
+  margin-left: 60px;
+}

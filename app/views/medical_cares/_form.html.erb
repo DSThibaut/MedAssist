@@ -1,12 +1,54 @@
-<%= simple_form_for(medical_care) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :start_date, :label => "Début du traitement" %>
-  <%= f.input :end_date, :label => "Fin du traitement" %>
-  <div data-add-medicament-target="forms">
-    <%= render partial: "medical_care_medicaments/form", locals: {f: f, medicaments: MedicalCareMedicament.new} %>
+<div class="container-page-traitement">
+
+  <div class="barre-separation-rdv-new"></div>
+
+  <div id="details-traitement">
+    <p>Détails du traitement :</p>
   </div>
-  <button  class="btn btn-secondary" data-action="click->add-medicament#addNewForm">Add Medicament</button>
-  <br>
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
+
+  <div class="formulaire-traitement-container">
+
+    <div class="details-traitement-gris">
+
+      <%= simple_form_for(medical_care) do |f| %>
+      <%= f.input :title, :label => "Titre" %>
+      <%= f.input :description %>
+
+      <div class="date-champ" data-controller="flatpickr">
+            <%= simple_form_for [@medical_care] do |f| %>
+              <%= f.input :start_date, as: :string,
+                                required: false,
+                                input_html: { id: "date", data: { flatpickr_target: "date" } }, label: "Début du traitement" %>
+            <% end %>
+      </div>
+
+      <div class="date-champ" data-controller="flatpickr">
+            <%= simple_form_for [@medical_care] do |f| %>
+              <%= f.input :end_date, as: :string,
+                                required: false,
+                                input_html: { id: "date", data: { flatpickr_target: "date" } }, label: "Fin du traitement" %>
+            <% end %>
+      </div>
+
+    </div>
+
+    <div id="medicaments-a-prendre">
+      <p>Médicaments à prendre :</p>
+    </div>
+
+    <div class="details-traitement-gris">
+
+      <div data-add-medicament-target="forms">
+        <%= render partial: "medical_care_medicaments/form", locals: {f: f, medicaments: MedicalCareMedicament.new} %>
+      </div>
+    </div>
+
+    <div class="section-btn-ajout-traitement">
+      <button  class="btn-ajout-traitement" data-action="click->add-medicament#addNewForm">+  Ajouter un médicament supplementaire</button>
+    </div>
+
+    <% end %>
+
+  </div>
+
+</div>

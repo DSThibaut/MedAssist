@@ -1,12 +1,42 @@
-<h1>Medical Center index</h1>
+<div class="prise-rdv-container">
 
-<p>--------------------------------</p>
-<% @medical_centers.each do |medical_center| %>
-<div>
-<p><%= medical_center.name %></p>
-<p><%= medical_center.address %></p>
-<p><%= medical_center.phone_number %></p>
-  <%= link_to "Prendre rendez-vous ici", new_medical_center_appointment_path(medical_center.id) %>
-<p>--------------------------------</p>
-<% end %>
+  <div class="barre-separation-rdv-prise-top"></div>
+
+  <div class="texte-labos"><p>Laboratoires à proximité</p></div>
+
+  <div id="barre-separation-bot"></div>
+
+  <% @medical_centers.each do |medical_center| %>
+    <div class="carte-prise-rdv">
+
+      <div class="titre-centre-rdv">
+        <h5><%= medical_center.name %></h5>
+      </div>
+
+      <div class="adresse-centre-rdv">
+        <p><%= medical_center.address %></p>
+      </div>
+
+      <div class="flex-container-rdv">
+
+        <div class="tel-centre-rdv">
+          <p>Tél: <%= medical_center.phone_number %></p>
+        </div>
+        <div class="btn-ajouter-a-mes-rdv">
+          <%= link_to "Ajouter à mes RDV", new_medical_center_appointment_path(medical_center.id) %>
+        </div>
+      </div>
+
+
+    </div>
+  <% end %>
+
+  <div class="barre-separation-rdv-prise"></div>
+
+  <div class="section-btn-mes-rdv">
+    <div class="btn-mes-rdv">
+      <%= link_to "Mes RDV", appointments_path%>
+    </div>
+  </div>
+
 </div>

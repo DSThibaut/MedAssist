@@ -1,4 +1,15 @@
-<h1>Nouveau Traitement</h1>
+<div class="navbar-traitement-ajout">
+  <div class="navbar-rdvavenir-left">
+    <%= link_to image_tag("icon-barre-fermer.svg", alt: "Bouton gauche"), "#" %>
+  </div>
+  <div class="navbar-rdvavenir-title">
+    <h1>Nouveau traitement</h1>
+  </div>
+  <div class="navbar-rdvavenir-right">
+    <%= link_to image_tag("icon-valider.svg", alt: "Bouton droit"), "f.submit" %>
+  </div>
+</div>
+
 <div data-controller="add-medicament">
   <%= render partial: "form", locals: {medical_care: @medical_care} %>
 </div>
