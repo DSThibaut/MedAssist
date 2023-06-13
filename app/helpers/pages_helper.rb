@@ -11,7 +11,7 @@ module PagesHelper
     when current_time >= "16:00"  && !element.evening?
       return "Prise du soir #{medication} #{element.medicament.unit}"
     else
-      return "Médicaments pris"
+      return ""
     end
   end
 
