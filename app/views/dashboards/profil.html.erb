@@ -1,35 +1,79 @@
 
-<h1>Mon profil</h1>
-<p></p>
-<h3>Mes Patients</h3>
-
-<p>---------------------------------------</p>
-<% current_user.medical_cares.each do |traitement| %>
-  <p><%= traitement.title %></p>
-  <p><%= traitement.description %></p>
-  <p>Début du traitement:
-    <%= translate_day(traitement.start_date.strftime("%A")) %>
-    <%= traitement.start_date.strftime("%d") %>
-    <%= translate_month(traitement.start_date.strftime("%B")) %>
-    <%= traitement.start_date.strftime("%Y")%></p>
-  <p>Fin du traitement:
-    <%= translate_day(traitement.end_date.strftime("%A")) %>
-      <%= traitement.end_date.strftime("%d") %>
-      <%= translate_month(traitement.end_date.strftime("%B")) %>
-      <%= traitement.end_date.strftime("%Y")%></p>
-  <% traitement.medical_care_medicaments.each do |traitement_medicament| %>
-  <%= "#{traitement_medicament.medicament.name}," %>
-  <%= traitement_medicament.dose.to_i %>
-  <%= traitement_medicament.medicament.unit.pluralize %>
-  <%= traitement_medicament.frequence %>
-  <%= link_to "Supprimer le medicament", delete_medical_care_medicament_path(traitement.id, traitement_medicament.id), data: {turbo_method: :delete} %>
-  <br>
-  <% end %>
-  <%= link_to "Ajouter un medicament", new_medical_care_medical_care_medicament_path(traitement.id)  %>
-  <%= link_to "Modifier le traitement du patient", edit_medical_care_path(traitement.id)  %>
-  <%= link_to "Supprimer ce patient", delete_medical_care_path(traitement.id), data: {turbo_method: :delete} %>
-<p>---------------------------------------</p>
-<% end %>
-
- <%= link_to "Ajouter un Patient", new_medical_care_path %>
- <%= link_to "Accueil", root_path %>
+<div class="container-profil">
+  <div class="navbar-rdvavenir">
+    <div class="navbar-rdvavenir-left">
+      <%= link_to image_tag("Icon-barre-options.svg", alt: "Bouton gauche"), "#" %>
+    </div>
+    <div class="navbar-rdvavenir-title">
+      <h1>Tableau de bord</h1>
+    </div>
+    <div class="navbar-rdvavenir-right">
+      <%= link_to image_tag("icon-barre-fermer.svg", alt: "Bouton droit"), root_path %>
+    </div>
+  </div>
+  <h3>Mes Patients</h3>
+  <div class="barre-separation"></div>
+    <% current_user.medical_cares.each do |traitement| %>
+    <div class="mes-patients">
+      <div class="patient-unique">
+        <div class="title">
+          <h5><%= traitement.title %></h5>
+          <p><%= traitement.description %></p>
+        </div>
+          <div class="traitement-date">
+            <div class="start-date card">
+              <div>
+                <p>Début du traitement:
+              </div>
+              <div>
+                <%= translate_day(traitement.start_date.strftime("%A")) %>
+                <%= traitement.start_date.strftime("%d") %>
+                <%= translate_month(traitement.start_date.strftime("%B")) %>
+                <div>
+                  <%= traitement.start_date.strftime("%Y")%></p>
+                </div>
+              </div>
+            </div>
+          <div class="end-date card">
+            <div>
+              <p>Fin du traitement:
+            </div>
+            <div>
+              <%= translate_day(traitement.end_date.strftime("%A")) %>
+                <%= traitement.end_date.strftime("%d") %>
+                <%= translate_month(traitement.end_date.strftime("%B")) %>
+                <div>
+                  <%= traitement.end_date.strftime("%Y")%></p>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div>
+        </div>
+        <% traitement.medical_care_medicaments.each do |traitement_medicament| %>
+          <div class="medicament-container">
+            <div>
+              <h5><%= "#{traitement_medicament.medicament.name.upcase}" %></h5>
+              <p><%= traitement_medicament.dose.to_i %>
+              <%= traitement_medicament.medicament.unit.pluralize %></p>
+            </div>
+            <div class="btn-supprimer-medicament">
+              <%= link_to image_tag("supprimer_ico.svg"), delete_medical_care_medicament_path(traitement.id, traitement_medicament.id), data: {turbo_method: :delete} %>
+            </div>
+          </div>
+        <% end %>
+        <div class="ajout-medicament">
+          <%= link_to "Ajouter un medicament", new_medical_care_medical_care_medicament_path(traitement.id), class: "btn-ajout-medicament"  %>
+        </div>
+      </div>
+      <div class="barre-separation-profil"></div>
+      <div class="add-edit-class">
+        <%= link_to image_tag("editer_ico.svg"), edit_medical_care_path(traitement.id)  %>
+        <%= link_to image_tag("supprimer_ico.svg"), delete_medical_care_path(traitement.id), data: {turbo_method: :delete} %>
+      </div>
+    </div>
+    <% end %>
+</div>
+<div class="ajout-patient">
+  <%= link_to "Ajouter un patient", new_medical_care_path, class: "btn-ajout-medicament" %>
+</div>
