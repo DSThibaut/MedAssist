@@ -9,7 +9,7 @@
   <p><%= traitement.description %></p>
   <p>Début du traitement:
     <%= translate_day(traitement.start_date.strftime("%A")) %>
-    <%= traitement.start_date.strftime("%d") %>
+    <%= traitement.start_date.strftime("%d")%>
     <%= translate_month(traitement.start_date.strftime("%B")) %>
     <%= traitement.start_date.strftime("%Y")%></p>
   <p>Fin du traitement:
