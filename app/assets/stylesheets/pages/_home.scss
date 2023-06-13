@@ -7,3 +7,46 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
+
+/* Div englobante */
+
+.container-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 1.4rem;
+
+  H5 {
+    display: flex;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+}
+
+.barre-separation-profil {
+  content: "";
+  display: flex;
+  justify-self: center;
+  width: 320px;
+  height: 0.8px;
+  background-color: #CFBCFF;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+/* Calendrier */
+
+.calendar-container {
+  display: grid;
+}
+
+.calendar-row {
+  display: inline-flex;
+  justify-content: space-evenly;
+}
+
+.date-day {
+
+}
