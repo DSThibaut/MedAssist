@@ -32,7 +32,8 @@ class AppointmentsController < ApplicationController
 
   def update
     @appointment = Appointment.find(params[:id])
-    @appointment.update(appointment_params)
+    date = Date.parse(params[:appointment][:date])
+    @appointment.update!(date: date + params[:appointment][:hour].to_i.hour + params[:appointment][:minutes].to_i.minutes)
     redirect_to appointments_path
   end
 

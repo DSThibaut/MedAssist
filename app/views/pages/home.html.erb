@@ -1,38 +1,66 @@
-<h1>Accueil</h1>
-<br>
-<% (0..15).each do |i| %>
-  <% date = (Date.today + i.day) %>
-  <%= link_to request.params.merge(date: date ) do %>
-    <%= translate_day(date.strftime("%a")) %>
-    <%= date.strftime("%d") %>
-  <% end %>
-<% end %>
-<br>
-<br>
-<p>- PRISES DU JOUR -</p>
-<div data-controller="prise-medicament">
-<% @traitements.each do |traitement| %>
-
-  <%= traitement.title %> <br>
-    <br><% traitement.medical_care_medicaments.each do |traitement_medicament| %>
-    <%= traitement_medicament.medicament.name %> <br>
-    <%= traitement_medicament.dose.to_i %>
-    <%= "#{traitement_medicament.medicament.unit} / jour" %> <br>
-    <% if dose(traitement_medicament) != "" %>
-      <%= link_to "#{dose(traitement_medicament)}", medical_care_medical_care_medicament_taken_path(traitement.id,traitement_medicament.id, taken: {symb_for_mcm.to_sym => true}) ,class: "btn btn-primary" %><br>
+<div class="container-home">
+  <div class="navbar-rdvavenir">
+    <div class="navbar-rdvavenir-left">
+      <%= link_to image_tag("Icon-barre-options.svg", alt: "Bouton gauche"), "#" %>
+    </div>
+    <div class="navbar-rdvavenir-title">
+      <h1>Acceuil</h1>
+    </div>
+    <div class="navbar-rdvavenir-right">
+      <%= link_to image_tag("icon-barre-fermer.svg", alt: "Bouton droit"), root_path %>
+    </div>
+  </div>
+  <div>
+    <div class="barre-separation"></div>
+      <h5>Calendrier</h5>
+    <div class="barre-separation"></div>
+  </div>
+  <div class="calendar-container">
+    <% (0..13).each do |i| %>
+      <% date = (Date.today + i.day) %>
+      <% if i % 7 == 0 %>
+        <div class="calendar-row">
+      <% end %>
+      <div class="date-day">
+        <%= link_to request.params.merge(date: date ) do %>
+          <%= translate_day(date.strftime("%a")) %>
+          <%= date.strftime("%d") %>
+        <% end %>
+      </div>
+        <% if i % 7 == 6 || i == 15 %>
+          </div>
+        <% end %>
     <% end %>
+  </div>
+  <br>
+  <br>
+  <p>- PRISES DU JOUR -</p>
+  <div data-controller="prise-medicament">
+  <% @traitements.each do |traitement| %>
+
+    <%= traitement.title %> <br>
+      <br><% traitement.medical_care_medicaments.each do |traitement_medicament| %>
+      <%= traitement_medicament.medicament.name %> <br>
+      <%= traitement_medicament.dose.to_i %>
+      <%= "#{traitement_medicament.medicament.unit} / jour" %> <br>
+      <% if dose(traitement_medicament) != "" %>
+        <%= link_to "#{dose(traitement_medicament)}", medical_care_medical_care_medicament_taken_path(traitement.id,traitement_medicament.id, taken: {symb_for_mcm.to_sym => true}) ,class: "btn btn-primary" %>
+      <% else %>
+        <%= "Medicament pris" %>
+      <% end %><br>
+    <% end %>
+    <p>---------------------------------------</p>
   <% end %>
-  <p>---------------------------------------</p>
-<% end %>
+  </div>
+    <p>---------------------------------------</p>
+    <p> -RDV DU JOUR -</p>
+  <% @appointments.each do |appointment| %>
+      <%= appointment.medical_center.name %> <br>
+      <%= appointment.medical_center.address %> <br>
+      <%= appointment.date.strftime("%A %d %B %Y, %H:%M") %>
+    <p>---------------------------------------</p>
+  <% end %>
 </div>
-  <p>---------------------------------------</p>
-  <p> -RDV DU JOUR -</p>
-<% @appointments.each do |appointment| %>
-    <%= appointment.medical_center.name %> <br>
-    <%= appointment.medical_center.address %> <br>
-    <%= appointment.date.strftime("%A %d %B %Y, %H:%M") %>
-  <p>---------------------------------------</p>
-<% end %>
 
 <p></p>
  <%= link_to "Accueil", root_path %>
