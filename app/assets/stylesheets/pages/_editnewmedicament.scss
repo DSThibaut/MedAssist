@@ -7,6 +7,21 @@
  left: 5%;
 }
 
+.btn-ajouter-medicament {
+  width: 149px;
+  height: 42px;
+  border-radius: 8px;
+  background-color: #D0BCFF;
+  color: #000000;
+  font-size: 16px;
+  border: none;
+}
+
+.add-btn-medoc {
+  display: flex;
+  justify-content: center;
+}
+
 .edit-traitement {
   bottom: 0;
   left: 0;
@@ -16,7 +31,7 @@
   background-color: #FEF7FF;
   padding-bottom: 21px;
 
-  #edit-traitement-btn {
+  .edit-medicament-btn {
     display: inline-block;
     padding: 6px 0px;
     width: 156px;

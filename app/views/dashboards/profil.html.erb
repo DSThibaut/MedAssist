@@ -40,7 +40,7 @@
               <p>Fin du traitement :
             </div>
             <div>
-              <%= translate_day(traitement.end_date.strftime("%A")) %>
+              <em><%= translate_day(traitement.end_date.strftime("%A")) %></em>
                 <em><%= traitement.end_date.strftime("%d") %></em>
                 <em><%= translate_month(traitement.end_date.strftime("%B")) %></em>
                 <div>

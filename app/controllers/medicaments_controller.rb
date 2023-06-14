@@ -2,6 +2,7 @@ class MedicamentsController < ApplicationController
   before_action :set_medicament, only: [:show, :edit, :update]
 
   def index
+    @title = "Médicaments"
     @medicaments = Medicament.all
     @medicaments = Medicament.order(:id)
     @medicament = Medicament.new
