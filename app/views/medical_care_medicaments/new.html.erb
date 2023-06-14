@@ -3,8 +3,8 @@
     <%= simple_form_for([@medical_care, @medical_care_medicament]) do |f| %>
       <%= f.association :medicament %>
       <%= f.input :dose %>
-      <div class="edit-medicament" id="edit-medicament-btn">
-        <%= f.submit id:"edit-medicament-btn" %>
+      <div class="add-btn-medoc">
+        <%= f.button :submit, "Ajouter", class: "btn-ajouter-medicament" %>
       </div>
     <% end %>
   </div>
