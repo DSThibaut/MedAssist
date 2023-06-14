@@ -152,9 +152,9 @@ fr:
     select:
       prompt: Veuillez sélectionner
     submit:
-      create: Créer un(e) %{model}
-      submit: Enregistrer ce(tte) %{model}
-      update: Modifier ce(tte) %{model}
+      create: Ajouter
+      submit: Enregistrer ce patient
+      update: Modifier ce patient
   number:
     currency:
       format:

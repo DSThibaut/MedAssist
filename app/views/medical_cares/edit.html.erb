@@ -1,10 +1,16 @@
-<%= simple_form_for(@medical_care) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <div data-add-medicament-target="forms">
-    <%= render partial: "medical_care_medicaments/form", locals: {f: f, medicaments: @medicaments} %>
+<div class="edit-container">
+  <div class="edit-form">
+    <%= simple_form_for(@medical_care) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <div data-add-medicament-target="forms">
+        <%= render partial: "medical_care_medicaments/form", locals: {f: f, medicaments: @medicaments} %>
+      </div>
+      <div class="edit-traitement" id="edit-traitement-btn">
+        <%= f.submit id:"edit-traitement-btn" %>
+      </div>
+    <% end %>
   </div>
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
+</div>
