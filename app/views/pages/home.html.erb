@@ -22,27 +22,30 @@
       <p><%= translate_day(jour.strftime("%a")).capitalize %></p>
     <% end %>
   </div>
-    <% (0..13).each do |i| %>
-      <% date = (Date.today + i.day) %>
-      <% if i % 7 == 0 %>
-        <div class="calendar-row">
-      <% end %>
-      <div class="date-day">
-        <%= link_to request.params.merge(date: date ) do %>
-          <%= week_day = date.strftime("%d") %>
+      <% (0..13).each do |i| %>
+        <% date = (Date.today + i.day).strftime %>
+        <% if i % 7 == 0 %>
+          <div class="calendar-row">
         <% end %>
-      </div>
+        <% if date == params[:date] %>
+          <div class="date-day">
+        <% else %>
+          <div class="empty-week-day">
+        <% end %>
+        <%= link_to request.params.merge(date: date ) do %>
+          <%= week_day = Date.parse(date).strftime("%d") %>
+        <% end %>
+        </div>
         <% if i % 7 == 6 || i == 13 %>
           </div>
         <% end %>
-    <% end %>
+      <% end %>
   </div>
   <br>
   <br>
   <p>- PRISES DU JOUR -</p>
   <div data-controller="prise-medicament">
   <% @traitements.each do |traitement| %>
-
     <%= traitement.title %> <br>
       <br><% traitement.medical_care_medicaments.each do |traitement_medicament| %>
         <%= traitement_medicament.medicament.name %> <br>
@@ -72,4 +75,3 @@
   <%= link_to "Profil", profil_path %>
   <%= link_to "RDV", appointments_path %>
   <%= link_to "Medicaments", medicaments_path %>
-<% console %>
