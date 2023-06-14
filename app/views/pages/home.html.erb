@@ -55,11 +55,11 @@
         <% end %><br>
       <% end %>
     <p>---------------------------------------</p>
-  <% end %>
-  </div>
+    <% end %>
+    </div>
     <p>---------------------------------------</p>
     <p> -RDV DU JOUR -</p>
-  <% @appointments.each do |appointment| %>
+    <% @appointments.each do |appointment| %>
       <%= appointment.medical_center.name %> <br>
       <%= appointment.medical_center.address %> <br>
       <%= appointment.date.strftime("%A %d %B %Y, %H:%M") %>

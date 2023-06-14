@@ -1,0 +1,33 @@
+.new-container {
+  display: flex;
+  justify-content: center;
+}
+
+.new-form {
+ left: 5%;
+}
+
+.edit-traitement {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 1rem;
+  background-color: #FEF7FF;
+  padding-bottom: 21px;
+
+  #edit-traitement-btn {
+    display: inline-block;
+    padding: 6px 0px;
+    width: 156px;
+    background-color: #D0BCFF;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    text-align: center;
+    font-size: 14px;
+    border: none;
+    justify-content: center;
+  }
+}

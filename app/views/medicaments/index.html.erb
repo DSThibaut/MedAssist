@@ -1,7 +1,7 @@
 <div class="container-medicaments">
   <div class="barre-separation-medicament"></div>
   <div class="titre-stock-actuel"><p>Stock actuel</p></div>
-  <div class="barre-separation-medicament"></div>
+  <div class="barre-separation-medicament" id="barre2"></div>
     <tbody>
       <div class="medicaments-card">
         <% @medicaments.each do |medicament| %>
@@ -33,21 +33,33 @@
 
   <div class="ajouter-medicament">
     <div class="barre-separation-medicament"></div>
-      <div class="titre-stock-actuel"><p>Ajouter un médicament</p></div>
-        <div class="barre-separation-medicament"></div>
+    <div class="titre-stock-actuel"><p>Ajouter un médicament</p></div>
+    <div class="barre-separation-medicament" id="barre2"></div>
           <%= form_with model: @medicament, url: medicaments_path, method: :post do |form| %>
             <div class="form">
               <div class="form-name">
-                <%= form.label :name, "Nom" %>
-                <%= form.text_field :name %>
+                <div class="label-left">
+                  <%= form.label :name, "Nom" %>
+                </div>
+                <div class="form-select-input">
+                  <%= form.text_field :name %>
+                </div>
               </div>
               <div class="form-stock">
-                <%= form.label :stock, "Stock" %>
-                <%= form.text_field :stock %>
+                <div class="label-left">
+                  <%= form.label :stock, "Stock" %>
+                </div>
+                <div class="form-select-input">
+                  <%= form.text_field :stock %>
+                </div>
               </div>
               <div class="form-unit">
-                <%= form.label :unit, "Unité" %>
-                <%= form.select :unit, Medicament::UNITS %>
+                <div class="label-left">
+                  <%= form.label :unit, "Unité" %>
+                </div>
+                <div class="form-select-input">
+                  <%= form.select :unit, Medicament::UNITS %>
+                </div>
               </div>
               <div class="ajouter-medicament" id="ajouter-medicament-btn">
                 <%= form.submit "Ajouter", id:"ajouter-medicament-btn" %>

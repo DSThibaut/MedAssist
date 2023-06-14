@@ -45,6 +45,11 @@
   background-color: #CFBCFF;
   margin-top: 2px;
   margin-bottom: 8px;
+  margin-left: 18px;
+}
+
+#barre2 {
+  padding-bottom: 6px;
 }
 
 .ajouter-medicament {
@@ -55,6 +60,7 @@
   padding: 1rem;
   background-color: #FEF7FF;
   padding-bottom: 21px;
+  border-radius: 8px;
 
   #ajouter-medicament-btn {
     display: inline-block;
@@ -76,10 +82,27 @@
   margin: 20px;
 }
 
-.form-name,
-.form-stock,
-.form-unit {
-  margin-bottom: 10px;
+.form-select-input {
+  input {
+      border-radius: 4px;
+      background-color: #E8DEF8;
+      padding: 10px;
+      border: none;
+      width: 288px;
+      height: 41px;
+      box-shadow: 0px 4px 5px -3px rgba(84,84,84,0.5);
+      -webkit-box-shadow: 0px 4px 5px -3px rgba(84,84,84,0.5);
+      -moz-box-shadow: 0px 4px 5px -3px rgba(84,84,84,0.5)
+  }
+  // border-radius: 4px;
+  // background-color: #E8DEF8;
+  // padding: 10px;
+  // border: none;
+  // width: 288px;
+  // height: 41px;
+  // box-shadow: 0px 4px 5px -3px rgba(84,84,84,0.5);
+  // -webkit-box-shadow: 0px 4px 5px -3px rgba(84,84,84,0.5);
+  // -moz-box-shadow: 0px 4px 5px -3px rgba(84,84,84,0.5);
 }
 
 .form label {
@@ -96,6 +119,7 @@
 
 .ajouter-medicament {
   margin-top: 10px;
+  background-color: #F3EDF7;
 }
 
 .ajouter-medicament input[type="submit"] {
@@ -104,4 +128,28 @@
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
+}
+
+.form-champ-medicament {
+  border-radius: 4px;
+  background-color : #E8DEF8;
+  width: 292px;
+  height: 41px;
+}
+
+.label-left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.form-name {
+  margin-bottom: 16px;
+}
+
+.form-stock {
+  margin-bottom: 16px;
+}
+
+.form-unit {
+  margin-bottom: 16px;
 }
