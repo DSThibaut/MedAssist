@@ -15,3 +15,6 @@ application.register("flatpickr-range", FlatpickrRangeController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import SubmitLinkController from "./submit_link_controller"
+application.register("submit-link", SubmitLinkController)

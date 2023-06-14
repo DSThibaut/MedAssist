@@ -1,7 +1,11 @@
-<%= simple_form_for([@medical_care, @medical_care_medicament]) do |f| %>
-  <%= f.association :medicament %>
-  <%= f.input :dose %>
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
-
-
+<div class="new-container">
+  <div class="new-form">
+    <%= simple_form_for([@medical_care, @medical_care_medicament]) do |f| %>
+      <%= f.association :medicament %>
+      <%= f.input :dose %>
+      <div class="edit-medicament" id="edit-medicament-btn">
+        <%= f.submit id:"edit-medicament-btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>
