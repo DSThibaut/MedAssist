@@ -6,7 +6,7 @@ module PagesHelper
     case
     when current_time < "12:00" && !element.morning?
       return "Prise de la matinée #{medication} #{element.medicament.unit} "
-    when current_time >= "12:00" && current_time < "16:00"  && !element.noon?
+    when current_time >= "12:00" && current_time < "16:00" && !element.noon?
       return "Prise du déjeuner #{medication} #{element.medicament.unit}"
     when current_time >= "16:00"  && !element.evening?
       return "Prise du soir #{medication} #{element.medicament.unit}"

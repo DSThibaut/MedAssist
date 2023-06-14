@@ -41,8 +41,6 @@
         <% end %>
       <% end %>
   </div>
-  <br>
-  <br>
   <p>- PRISES DU JOUR -</p>
     <% @traitements.each do |traitement| %>
     <div class="patient-home">
@@ -55,10 +53,17 @@
           <%= traitement_medicament.dose.to_i %>
           <%= "#{traitement_medicament.medicament.unit} / jour" %> <br>
           <% if dose(traitement_medicament) != "" %>
-            <%= link_to "#{dose(traitement_medicament)}", medical_care_medical_care_medicament_taken_path(traitement.id,traitement_medicament.id, taken: {symb_for_mcm.to_sym => true}) ,class: "btn btn-primary" %>
+          <div class="btn-medicament-prit">
+           <%= link_to medical_care_medical_care_medicament_taken_path(traitement.id, traitement_medicament.id, taken: { symb_for_mcm.to_sym => true }) do %>
+  Médicament pris
+<% end %>
+
+          </div>
           <% else %>
-            <%= "Medicament pris" %>
-          <% end %><br>
+          <div class="pris-text">
+            <p><%= "Medicament pris" %></p>
+          </div>
+          <% end %>
         </div>
         <% end %>
     </div>
