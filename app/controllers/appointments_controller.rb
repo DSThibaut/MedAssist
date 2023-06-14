@@ -1,5 +1,6 @@
 class AppointmentsController < ApplicationController
   def index
+    @title = "Rendez-vous à venir"
     @appointments = Appointment.where(user_id: current_user.id)
   end
 
