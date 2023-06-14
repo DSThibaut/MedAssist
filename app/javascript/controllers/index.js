@@ -13,5 +13,5 @@ application.register("flatpickr", FlatpickrController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import PriseMedicamentController from "./prise_medicament_controller"
-application.register("prise-medicament", PriseMedicamentController)
+import SubmitLinkController from "./submit_link_controller"
+application.register("submit-link", SubmitLinkController)
