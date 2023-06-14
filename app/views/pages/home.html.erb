@@ -84,8 +84,28 @@
     <% end %>
 </div>
 
-<p></p>
- <%= link_to "Accueil", root_path %>
-  <%= link_to "Tableau de bord", profil_path %>
-  <%= link_to "RDV", appointments_path %>
-  <%= link_to "Medicaments", medicaments_path %>
+<%# Footer %>
+
+<div class="footer-container">
+  <div class="footer-button">
+    <%= link_to root_path do %>
+      <%= image_tag("footer-accueil.svg", alt: "Accueil") %>
+    <% end %>
+  </div>
+
+  <div class="footer-button">
+    <%= link_to medical_centers_path do %>
+      <%= image_tag("footer-centres.svg", alt: "Centres Médicaux") %>
+    <% end %>
+  </div>
+
+  <div class="footer-button">
+    <%= link_to medicaments_path do %>
+      <%= image_tag("footer-medicaments.svg", alt: "Médicaments") %>
+    <% end %>
+  </div>
+</div>
+<div class="espace-vide-footer"></div>
+
+<%# Footer %>
+
