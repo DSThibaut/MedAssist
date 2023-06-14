@@ -7,9 +7,6 @@ import { application } from "./application"
 import AddMedicamentController from "./add_medicament_controller"
 application.register("add-medicament", AddMedicamentController)
 
-import CalendarController from "./calendar_controller"
-application.register("calendar", CalendarController)
-
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
