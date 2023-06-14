@@ -11,24 +11,18 @@
     <div class="details-traitement-gris">
 
       <%= simple_form_for(medical_care) do |f| %>
-      <%= f.input :title, :label => "Titre" %>
-      <%= f.input :description %>
+        <%= f.input :title, label: "Titre" %>
+        <%= f.input :description %>
 
-      <div class="date-champ" data-controller="flatpickr">
-            <%= simple_form_for [@medical_care] do |f| %>
-              <%= f.input :start_date, as: :string,
-                                required: false,
-                                input_html: { id: "date", data: { flatpickr_target: "date" } }, label: "Début du traitement" %>
-            <% end %>
-      </div>
+        <div class="date-champ" data-controller="flatpickr-range">
+            <%= f.input :start_date, as: :string,
+                               required: false,
+                               input_html: { id: "range_start"}, label: "Début du traitement" %>
+            <%= f.input :end_date, as: :string,
+                             required: false,
+                             input_html: { id: "range_end" }, label: "Fin du traitement" %>
 
-      <div class="date-champ" data-controller="flatpickr">
-            <%= simple_form_for [@medical_care] do |f| %>
-              <%= f.input :end_date, as: :string,
-                                required: false,
-                                input_html: { id: "date", data: { flatpickr_target: "date" } }, label: "Fin du traitement" %>
-            <% end %>
-      </div>
+        </div>
 
     </div>
 
@@ -46,6 +40,10 @@
     <div class="section-btn-ajout-traitement">
       <button  class="btn-ajout-traitement" data-action="click->add-medicament#addNewForm">+  Ajouter un médicament supplementaire</button>
     </div>
+
+      <div class="section-btn-enregistrer-traitement">
+        <%= f.button :submit, "Enregistrer le traitement", class: "btn-enregistrer-traitement", id: "submit-button" %>
+      </div>
 
     <% end %>
 
