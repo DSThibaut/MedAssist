@@ -40,36 +40,43 @@
   <br>
   <br>
   <p>- PRISES DU JOUR -</p>
-  <div data-controller="prise-medicament">
-  <% @traitements.each do |traitement| %>
-
-    <%= traitement.title %> <br>
-      <br><% traitement.medical_care_medicaments.each do |traitement_medicament| %>
-        <%= traitement_medicament.medicament.name %> <br>
-        <%= traitement_medicament.dose.to_i %>
-        <%= "#{traitement_medicament.medicament.unit} / jour" %> <br>
-        <% if dose(traitement_medicament) != "" %>
-          <%= link_to "#{dose(traitement_medicament)}", medical_care_medical_care_medicament_taken_path(traitement.id,traitement_medicament.id, taken: {symb_for_mcm.to_sym => true}) ,class: "btn btn-primary" %>
-        <% else %>
-          <%= "Medicament pris" %>
-        <% end %><br>
-      <% end %>
-    <p>---------------------------------------</p>
-    <% end %>
+    <% @traitements.each do |traitement| %>
+    <div class="patient-home">
+      <p><%= traitement.title %></p>
+        <% traitement.medical_care_medicaments.each do |traitement_medicament| %>
+        <div class="medicament-name">
+          <%= traitement_medicament.medicament.name %> <br>
+        </div>
+        <div class="medicament-dose">
+          <%= traitement_medicament.dose.to_i %>
+          <%= "#{traitement_medicament.medicament.unit} / jour" %> <br>
+          <% if dose(traitement_medicament) != "" %>
+            <%= link_to "#{dose(traitement_medicament)}", medical_care_medical_care_medicament_taken_path(traitement.id,traitement_medicament.id, taken: {symb_for_mcm.to_sym => true}) ,class: "btn btn-primary" %>
+          <% else %>
+            <%= "Medicament pris" %>
+          <% end %><br>
+        </div>
+        <% end %>
     </div>
-    <p>---------------------------------------</p>
-    <p> -RDV DU JOUR -</p>
+      <% end %>
+  <p> -RDV DU JOUR -</p>
     <% @appointments.each do |appointment| %>
-      <%= appointment.medical_center.name %> <br>
-      <%= appointment.medical_center.address %> <br>
-      <%= appointment.date.strftime("%A %d %B %Y, %H:%M") %>
-    <p>---------------------------------------</p>
-  <% end %>
+    <div class="rdv-home">
+        <div class="rdv-home-info">
+          <div class="nom-adresse-rdv-home">
+            <%= appointment.medical_center.name %> <br>
+            <%= appointment.medical_center.address %> <br>
+          </div>
+          <div class="date-rdv-home">
+            <%= appointment.date.strftime("%A %d %B %Y, %H:%M") %>
+          </div>
+        </div>
+    </div>
+    <% end %>
 </div>
 
 <p></p>
  <%= link_to "Accueil", root_path %>
-  <%= link_to "Profil", profil_path %>
+  <%= link_to "Tableau de bord", profil_path %>
   <%= link_to "RDV", appointments_path %>
   <%= link_to "Medicaments", medicaments_path %>
-<% console %>
