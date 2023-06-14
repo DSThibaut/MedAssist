@@ -31,5 +31,6 @@ module PagesHelper
     return "special-background" if controller_name == 'medical_centers' && action_name == 'index'
     return "special-background" if controller_name == 'medicaments' && action_name == 'index'
     return "special-background" if controller_name == 'dashboards' && action_name == 'profil'
+    return "special-background" if controller_name == 'pages' && action_name == 'home'
   end
 end
