@@ -30,6 +30,6 @@ module PagesHelper
   def special_background(controller_name, action_name)
     return "special-background" if controller_name == 'medical_centers' && action_name == 'index'
     return "special-background" if controller_name == 'medicaments' && action_name == 'index'
-    return "toto" if controller_name == 'medicaments' && action_name == 'index'
+    return "special-background" if controller_name == 'dashboards' && action_name == 'profil'
   end
 end

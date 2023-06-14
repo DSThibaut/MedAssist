@@ -1,17 +1,19 @@
 <div class="container-profil">
-  <div class="navbar-rdvavenir">
-    <div class="navbar-rdvavenir-left">
+  <div class="navbar-profil-dash">
+    <div class="navbar-profil-dash-left">
       <%= link_to image_tag("Icon-barre-options.svg", alt: "Bouton gauche"), "#" %>
     </div>
-    <div class="navbar-rdvavenir-title">
+    <div class="navbar-profil-dash-title">
       <h1>Tableau de bord</h1>
     </div>
-    <div class="navbar-rdvavenir-right">
+    <div class="navbar-profil-dash-right">
       <%= link_to image_tag("icon-barre-fermer.svg", alt: "Bouton droit"), root_path %>
     </div>
   </div>
-  <h3>Mes Patients</h3>
-  <div class="barre-separation"></div>
+  <div class="barre-separation-profil"></div>
+  <div class="titre-mes-patients">
+    <h5>Mes Patients</h5>
+  </div>
     <% current_user.medical_cares.each do |traitement| %>
     <div class="mes-patients">
       <div class="patient-unique">
@@ -21,32 +23,33 @@
         </div>
           <div class="traitement-date">
             <div class="start-date card">
-              <div>
-                <p>Début du traitement:
+              <div class="debut-fin-du-traitement-texte">
+                <p>Début du traitement :
               </div>
               <div>
-                <%= translate_day(traitement.start_date.strftime("%A")) %>
-                <%= traitement.start_date.strftime("%d") %>
-                <%= translate_month(traitement.start_date.strftime("%B")) %>
+                <em><%= translate_day(traitement.start_date.strftime("%A")) %></em>
+                <em><%= traitement.start_date.strftime("%d") %></em>
+                <em><%= translate_month(traitement.start_date.strftime("%B")) %></em>
                 <div>
-                  <%= traitement.start_date.strftime("%Y")%></p>
+                  <em><p><%= traitement.start_date.strftime("%Y")%></p></em>
                 </div>
               </div>
             </div>
           <div class="end-date card">
-            <div>
-              <p>Fin du traitement:
+            <div class="debut-fin-du-traitement-texte">
+              <p>Fin du traitement :
             </div>
             <div>
               <%= translate_day(traitement.end_date.strftime("%A")) %>
-                <%= traitement.end_date.strftime("%d") %>
-                <%= translate_month(traitement.end_date.strftime("%B")) %>
+                <em><%= traitement.end_date.strftime("%d") %></em>
+                <em><%= translate_month(traitement.end_date.strftime("%B")) %></em>
                 <div>
-                  <%= traitement.end_date.strftime("%Y")%></p>
+                  <em><%= traitement.end_date.strftime("%Y")%></p></em>
                 </div>
             </div>
           </div>
         </div>
+        <div class="barre-separation-profil-int"></div>
         <div>
         </div>
         <% traitement.medical_care_medicaments.each do |traitement_medicament| %>
@@ -61,18 +64,24 @@
             </div>
           </div>
         <% end %>
+
+        <div class="barre-separation-profil-int"></div>
+
+      </div>
+
         <div class="ajout-medicament">
           <%= link_to "Ajouter un medicament", new_medical_care_medical_care_medicament_path(traitement.id), class: "btn-ajout-medicament"  %>
         </div>
-      </div>
-      <div class="barre-separation-profil"></div>
-      <div class="add-edit-class">
-        <%= link_to image_tag("editer_ico.svg"), edit_medical_care_path(traitement.id)  %>
-        <%= link_to image_tag("supprimer_ico.svg"), delete_medical_care_path(traitement.id), data: {turbo_method: :delete} %>
-      </div>
-    </div>
+
+        <div class="section-btn-editer-traitement">
+          <%= link_to "Editer", edit_medical_care_path(traitement.id), class: "btn-editer-traitement" %>
+        </div>
+        <div class="section-btn-supprimer-traitement">
+          <%= link_to "Supprimer", delete_medical_care_path(traitement.id), data: {turbo_method: :delete}, class: "btn-supprimer-traitement"   %>
+        </div>
+        </div>
     <% end %>
 </div>
 <div class="ajout-patient">
-  <%= link_to "Ajouter un patient", new_medical_care_path, class: "btn-ajout-medicament" %>
+  <%= link_to "Ajouter un patient", new_medical_care_path, class: "btn-ajout-patient-bas" %>
 </div>

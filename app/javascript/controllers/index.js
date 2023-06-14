@@ -10,6 +10,9 @@ application.register("add-medicament", AddMedicamentController)
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
+import FlatpickrRangeController from "./flatpickr_range_controller"
+application.register("flatpickr-range", FlatpickrRangeController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
