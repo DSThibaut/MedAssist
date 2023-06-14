@@ -48,5 +48,33 @@ body {
 }
 
 .date-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  width: 46px;
+  border-radius: 50%;
+  background-color: #6750A4;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
 
+.empty-week-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  width: 46px;
+  border-radius: 50%;
+  background-color: #F7F2FA;
+  a {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+.date-name {
+  font-size: larger;
 }
