@@ -36,7 +36,7 @@ MedicalCenter.create!(name: "Hôpital Pierre Wertheimer", address: "59 Boulevard
 puts "#{MedicalCenter.count} MedicalCenter crées"
 
 MedicalCare.create!(title: "Gabriel Dupont - DMD", description: "Dystrophie musculaire de Duchenne", user_id: 1, start_date: "2023-06-02", end_date: "2023-09-02")
-MedicalCare.create!(title: "Jean Durand - DMD", description: "Dystrophie musculaire de Duchenne", user_id: 1, start_date: "2023-06-10", end_date: "2024-11-10")
+MedicalCare.create!(title: "Jean Durand - MDC", description: "Maladie de Charcot", user_id: 1, start_date: "2023-06-10", end_date: "2024-11-10")
 puts "#{MedicalCare.count} MedicalCare crées"
 
 MedicalCareMedicament.create!(medical_care_id: 1, medicament: Deflazacort, dose: 6)
