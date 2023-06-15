@@ -24,6 +24,7 @@ Deflazacort = Medicament.create!(name: "Deflazacort", unit: "Comprimé", stock: 
 Dilantin = Medicament.create!(name: "Dilantin", unit: "Comprimé", stock: 48)
 puts "#{Medicament.count} Medicaments crées"
 
+
 medical_center_1 = MedicalCenter.create!(name: "BIOGROUP - Lyon Terreaux", address: "19 Rue Paul Chanavard, 69001 Lyon", phone_number: "06-45-32-56-89")
 medical_center_2 = MedicalCenter.create!(name: "Eurofins CBM 69 - Croix Rousse", address: "4 Place de la Croix-Rousse, 69004 Lyon", phone_number: "07-12-00-56-83")
 medical_center_3 = MedicalCenter.create!(name: "Centre Expert du Mouvement", address: "84 Quai Joseph Gillet, 69004 Lyon", phone_number: "06-45-45-38-88")
@@ -33,6 +34,7 @@ medical_center_6 = MedicalCenter.create!(name: "Kinésia - Centre de Kinésithé
 medical_center_7 = MedicalCenter.create!(name: "Dr. MALEYSSON, Kinésithérapeute", address: "9 Rue Saint-Hippolyte, 69008 Lyon", phone_number: "04-34-54-76-76")
 medical_center_8 = MedicalCenter.create!(name: "Dr. CRELIN - Kinésithérapeute", address: "46 Avenue Condorcet, 69100 Villeurbanne", phone_number: "04-66-94-81-31")
 medical_center_9 = MedicalCenter.create!(name: "Hôpital Pierre Wertheimer", address: "59 Boulevard Pinel, 69500 Bron", phone_number: "04-55-65-77-80")
+
 puts "#{MedicalCenter.count} MedicalCenter crées"
 
 patient_1 = MedicalCare.create!(title: "Gabriel Dupont - DMD", description: "Dystrophie musculaire de Duchenne", user_id: user_test.id, start_date: "2023-06-02", end_date: "2023-09-02")

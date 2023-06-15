@@ -10,11 +10,22 @@
   padding-right: 32px;
 
   .footer-button {
-
+    position: relative;
   }
 }
 
 .espace-vide-footer {
   height: 76px;
   margin-top: 8px;
+}
+
+.active-footer::after {
+  content: '';
+  background-color: #F3EDF7;
+  height: 76px;
+  width: 96px;
+  position: absolute;
+  z-index: -20;
+  left: -18px;
+  top: -10px;
 }

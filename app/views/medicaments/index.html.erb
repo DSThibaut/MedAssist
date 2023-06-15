@@ -2,7 +2,8 @@
   <div class="barre-separation-medicament"></div>
   <div class="titre-stock-actuel"><p>Stock actuel</p></div>
   <div class="barre-separation-medicament" id="barre2"></div>
-    <tbody>
+
+    <tbody class="tableau-medicaments">
       <div class="medicaments-card">
         <% @medicaments.each do |medicament| %>
           <div class="info-medicaments">
@@ -32,9 +33,9 @@
     </tbody>
 
   <div class="ajouter-medicament">
-    <div class="barre-separation-medicament"></div>
+    <div class="barre-separation-medicament", id="barre2"></div>
     <div class="titre-stock-actuel"><p>Ajouter un médicament</p></div>
-    <div class="barre-separation-medicament" id="barre2"></div>
+    <div class="barre-separation-medicament", id="barre3"></div>
           <%= form_with model: @medicament, url: medicaments_path, method: :post do |form| %>
             <div class="form">
               <div class="form-name">
@@ -55,7 +56,7 @@
               </div>
               <div class="form-unit">
                 <div class="label-left">
-                  <%= form.label :unit, "Unité" %>
+                  <%= form.label :unit, "Type" %>
                 </div>
                 <div class="form-select-input">
                   <%= form.select :unit, Medicament::UNITS %>
@@ -84,9 +85,9 @@
     <% end %>
   </div>
 
-  <div class="footer-button">
+  <div class="footer-button active-footer">
     <%= link_to medicaments_path do %>
-      <%= image_tag("footer-medicaments.svg", alt: "Médicaments") %>
+      <%= image_tag("footer-a-medicaments.svg", alt: "Médicaments") %>
     <% end %>
   </div>
 </div>
