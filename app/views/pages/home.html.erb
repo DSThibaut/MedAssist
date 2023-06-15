@@ -1,20 +1,11 @@
 <div class="container-home">
-  <div class="navbar-rdvavenir">
-    <div class="navbar-rdvavenir-left">
-      <%= link_to image_tag("Icon-barre-options.svg", alt: "Bouton gauche"), "#" %>
-    </div>
-    <div class="navbar-rdvavenir-title">
-      <h1>Accueil</h1>
-    </div>
-    <div class="navbar-rdvavenir-right">
-      <%= link_to image_tag("icon-barre-fermer.svg", alt: "Bouton droit"), root_path %>
-    </div>
-  </div>
+
   <div>
-    <div class="barre-separation"></div>
+    <div class="barre-separation-accueil"></div>
       <h5>Calendrier</h5>
-    <div class="barre-separation"></div>
+    <div class="barre-separation-accueil"></div>
   </div>
+
   <div class="calendar-container">
   <div class="calendar-row date-name" style="gap: 8px;">
     <%(0..6).each do |day| %>
@@ -41,34 +32,46 @@
         <% end %>
       <% end %>
   </div>
-  <p>- PRISES DU JOUR -</p>
+
+  <div>
+  <div class="barre-separation-accueil"></div>
+    <h5>Prises du jour</h5>
+  <div class="barre-separation-accueil"></div>
+  </div>
+
+
     <% @traitements.each do |traitement| %>
     <div class="patient-home">
       <p><%= traitement.title %></p>
         <% traitement.medical_care_medicaments.each do |traitement_medicament| %>
-        <div class="medicament-name">
-          <%= traitement_medicament.medicament.name %> <br>
-        </div>
-        <div class="medicament-dose">
-          <%= traitement_medicament.dose.to_i %>
-          <%= "#{traitement_medicament.medicament.unit} / jour" %> <br>
-          <% if dose(traitement_medicament) != "" %>
-          <div class="btn-medicament-prit">
-           <%= link_to medical_care_medical_care_medicament_taken_path(traitement.id, traitement_medicament.id, taken: { symb_for_mcm.to_sym => true }) do %>
-  Médicament pris
+        <div class="barre-separation-accueil-int"></div>
+
+          <div class="medicament-name">
+            <%= traitement_medicament.medicament.name %> <br>
+          </div>
+          <div class="medicament-dose">
+            <%= traitement_medicament.dose.to_i %>
+            <%= "#{traitement_medicament.medicament.unit} / jour" %> <br>
+            <% if dose(traitement_medicament) != "" %>
+            <div class="btn-medicament-prit">
+            <%= link_to medical_care_medical_care_medicament_taken_path(traitement.id, traitement_medicament.id, taken: { symb_for_mcm.to_sym => true }) do %>
+    Prendre
 <% end %>
 
           </div>
           <% else %>
           <div class="pris-text">
-            <p><%= "Medicament pris" %></p>
+            <p id="medicament-pris"><%= "Medicament pris" %></p>
           </div>
           <% end %>
         </div>
         <% end %>
     </div>
       <% end %>
-  <p> -RDV DU JOUR -</p>
+  <div class="barre-separation-accueil", id="barre-accueil-rdv-haut"></div>
+  <h5>Rendez-vous du jour</h5>
+  <div class="barre-separation-accueil", id="barre-accueil-rdv-bas"></div>
+
     <% @appointments.each do |appointment| %>
     <div class="rdv-home">
         <div class="rdv-home-info">
