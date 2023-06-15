@@ -27,7 +27,7 @@
           </div>
 
           <div class="date-rdv">
-            <p><%= appointment.date.strftime("%d %B %Y, %H:%M") %></p>
+            <p><%= translate_day(appointment.date.strftime("%A")) + " " + appointment.date.strftime("%d") + " " + translate_month(appointment.date.strftime("%B")) + " " + appointment.date.strftime("%H:%M")  %></p>
           </div>
         </div>
 
