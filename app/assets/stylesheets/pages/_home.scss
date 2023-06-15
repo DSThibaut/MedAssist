@@ -75,6 +75,20 @@ body {
   }
 }
 
+.rdv-week-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  width: 46px;
+  border-radius: 50%;
+  background-color: #D0BCFF;
+  a {
+    color: black;
+    text-decoration: none;
+  }
+}
+
 .date-name {
   font-size: larger;
 }
