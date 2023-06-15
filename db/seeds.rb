@@ -24,7 +24,6 @@ Deflazacort = Medicament.create!(name: "Deflazacort", unit: "Comprimé", stock: 
 Dilantin = Medicament.create!(name: "Dilantin", unit: "Comprimé", stock: 48)
 puts "#{Medicament.count} Medicaments crées"
 
-
 medical_center_1 = MedicalCenter.create!(name: "BIOGROUP - Lyon Terreaux", address: "19 Rue Paul Chanavard, 69001 Lyon", phone_number: "06-45-32-56-89")
 medical_center_2 = MedicalCenter.create!(name: "Eurofins CBM 69 - Croix Rousse", address: "4 Place de la Croix-Rousse, 69004 Lyon", phone_number: "07-12-00-56-83")
 medical_center_3 = MedicalCenter.create!(name: "Centre Expert du Mouvement", address: "84 Quai Joseph Gillet, 69004 Lyon", phone_number: "06-45-45-38-88")
