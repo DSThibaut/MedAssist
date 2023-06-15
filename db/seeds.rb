@@ -24,15 +24,15 @@ Deflazacort = Medicament.create!(name: "Deflazacort", unit: "Comprimé", stock: 
 Dilantin = Medicament.create!(name: "Dilantin", unit: "Comprimé", stock: 48)
 puts "#{Medicament.count} Medicaments crées"
 
-MedicalCenter.create!(name: "BIOGROUP - Lyon Terreaux", address: "19 Rue Paul Chanavard, 69001 Lyon", phone_number: "06-45-32-56-89")
-MedicalCenter.create!(name: "Eurofins CBM 69 - Croix Rousse", address: "4 Place de la Croix-Rousse, 69004 Lyon", phone_number: "07-12-00-56-83")
-MedicalCenter.create!(name: "Centre Expert du Mouvement", address: "84 Quai Joseph Gillet, 69004 Lyon", phone_number: "06-45-45-38-88")
-MedicalCenter.create!(name: "Hôpital de la Croix-Rousse", address: "103 Gd Rue de la Croix-Rousse, 69004 Lyon", phone_number: "04-33-90-91-12")
-MedicalCenter.create!(name: "Hôpital Edouard Herriot", address: "5 Place d'Arsonval, 69003 Lyon", phone_number: "04-34-32-87-15")
-MedicalCenter.create!(name: "Kinésia - Centre de Kinésithérapie", address: "28 Avenue Rockfeller, 69008 Lyon", phone_number: "06-34-32-87-15")
-MedicalCenter.create!(name: "Dr. MALEYSSON, Kinésithérapeute", address: "9 Rue Saint-Hippolyte, 69008 Lyon", phone_number: "04-34-54-76-76")
-MedicalCenter.create!(name: "Dr. CRELIN - Kinésithérapeute", address: "46 Avenue Condorcet, 69100 Villeurbanne", phone_number: "04-66-94-81-31")
-MedicalCenter.create!(name: "Hôpital Pierre Wertheimer", address: "59 Boulevard Pinel, 69500 Bron", phone_number: "04-55-65-77-80")
+MedicalCenter.create!(name: "BIOGROUP - Lyon Terreaux", address: "19 Rue Paul Chanavard, 69001 Lyon", phone_number: "06 45 32 56 89")
+MedicalCenter.create!(name: "Eurofins - Croix Rousse", address: "4 Place de la Croix-Rousse, 69004 Lyon", phone_number: "07 12 00 56 83")
+MedicalCenter.create!(name: "Centre Expert du Mouvement", address: "84 Quai Joseph Gillet, 69004 Lyon", phone_number: "06 45 45 38 88")
+MedicalCenter.create!(name: "Hôpital de la Croix-Rousse", address: "103 Gd Rue de la Croix-Rousse, 69004 Lyon", phone_number: "04 33 90 91 12")
+MedicalCenter.create!(name: "Hôpital Edouard Herriot", address: "5 Place d'Arsonval, 69003 Lyon", phone_number: "04 34 32 87 15")
+MedicalCenter.create!(name: "Kinésia - Centre de Kinésithérapie", address: "28 Avenue Rockfeller, 69008 Lyon", phone_number: "06 34 32 87 15")
+MedicalCenter.create!(name: "UNIBIO Lyon Carnot", address: "1 Pl. Carnot, 69002 Lyon", phone_number: "04 78 37 14 70")
+MedicalCenter.create!(name: "Dr. CRELIN - Kinésithérapeute", address: "46 Avenue Condorcet, 69100 Villeurbanne", phone_number: "04 66 94 81 31")
+MedicalCenter.create!(name: "Hôpital Pierre Wertheimer", address: "59 Boulevard Pinel, 69500 Bron", phone_number: "04 55 65 77 80")
 puts "#{MedicalCenter.count} MedicalCenter crées"
 
 MedicalCare.create!(title: "Gabriel Dupont - DMD", description: "Dystrophie musculaire de Duchenne", user_id: 1, start_date: "2023-06-02", end_date: "2023-09-02")

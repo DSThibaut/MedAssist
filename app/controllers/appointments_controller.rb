@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   def index
-    @title = "Rendez-vous à venir"
+    @hide_navbar = true
     @appointments = Appointment.where(user_id: current_user.id)
   end
 
@@ -9,6 +9,7 @@ class AppointmentsController < ApplicationController
   end
 
   def new
+    @hide_navbar = true
     @medical_center = MedicalCenter.find(params[:medical_center_id])
     @appointment = Appointment.new
   end
@@ -27,6 +28,7 @@ class AppointmentsController < ApplicationController
   end
 
   def edit
+    @hide_navbar = true
     @appointment = Appointment.find(params[:id])
     @medical_center = @appointment.medical_center
   end
