@@ -1,6 +1,7 @@
+<% unless @hide_navbar %>
   <div class="navbar-medassist">
     <div class="navbar-medassist-left">
-      <%= link_to image_tag("icone-navbar-gauche.svg", alt: "Bouton gauche"), "#" %>
+      <%# <%= link_to image_tag("icone-navbar-gauche.svg", alt: "Bouton gauche"), "#" %>
     </div>
     <div class="navbar-medassist-title">
       <h1><%= @title %></h1>
@@ -11,3 +12,4 @@
   </div>
 
   <div class="espace-vide-navbar"></div>
+<% end %>
