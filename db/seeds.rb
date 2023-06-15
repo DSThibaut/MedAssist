@@ -47,7 +47,7 @@ MedicalCareMedicament.create!(medical_care_id: patient_2.id, medicament: Lozarta
 MedicalCareMedicament.create!(medical_care_id: patient_2.id, medicament: Creatine, dose: 9)
 MedicalCareMedicament.create!(medical_care_id: patient_2.id, medicament: Calcium, dose: 3)
 MedicalCareMedicament.create!(medical_care_id: patient_2.id, medicament: Dantrium, dose: 6)
-MedicalCareMedicament.create!(medical_care_id: patient_2.id, medicament: Protandium, dose: 9)
+MedicalCareMedicament.create!(medical_care_id: patient_2.id, medicament: Protandim, dose: 9)
 MedicalCareMedicament.create!(medical_care_id: patient_2.id, medicament: Dilantin, dose: 6)
 puts "#{MedicalCareMedicament.count} MedicalCareMedicament crées"
 
