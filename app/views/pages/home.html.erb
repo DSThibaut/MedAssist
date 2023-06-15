@@ -76,7 +76,7 @@
             <%= appointment.medical_center.address %> <br>
           </div>
           <div class="date-rdv-home">
-            <%= appointment.date.strftime("%A %d %B %Y, %H:%M") %>
+            <%= translate_day(appointment.date.strftime("%A")) + " " + appointment.date.strftime("%d") + " " + translate_month(appointment.date.strftime("%B")) + " " + appointment.date.strftime("%H:%M")  %>
           </div>
         </div>
     </div>
@@ -107,3 +107,4 @@
 <div class="espace-vide-footer"></div>
 
 <%# Footer %>
+<% console %>
