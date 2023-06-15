@@ -13,12 +13,10 @@ Quercetine = Medicament.create!(name: "Quercétine", unit: "Vitamine", stock: 42
 Creatine = Medicament.create!(name: "Créatine", unit: "Complément", stock: 36)
 Vitamine_D = Medicament.create!(name: "Vitamine D", unit: "Vitamine", stock: 46)
 Calcium = Medicament.create!(name: "Calcium", unit: "Complément", stock: 38)
-Haelan = Medicament.create!(name: "Haelan", unit: "Complément", stock: 24)
 Protandim = Medicament.create!(name: "Protandim", unit: "Complément", stock: 56)
 Tegretol = Medicament.create!(name: "Tégrétol", unit: "Comprimé", stock: 28)
 Dantrium = Medicament.create!(name: "Dantrium", unit: "Comprimé", stock: 32)
 Lioresal = Medicament.create!(name: "Liorésal", unit: "Comprimé", stock: 56)
-Mexitil = Medicament.create!(name: "Mexitil", unit: "Gellule", stock: 38)
 Lozartan = Medicament.create!(name: "Lozartan", unit: "Comprimé", stock: 42)
 Deflazacort = Medicament.create!(name: "Deflazacort", unit: "Comprimé", stock: 54)
 Dilantin = Medicament.create!(name: "Dilantin", unit: "Comprimé", stock: 48)
@@ -41,17 +39,15 @@ patient_2 = MedicalCare.create!(title: "Jean Durand - MDC", description: "Maladi
 puts "#{MedicalCare.count} MedicalCare crées"
 
 MedicalCareMedicament.create!(medical_care_id: patient_1.id, medicament: Deflazacort, dose: 6)
-MedicalCareMedicament.create!(medical_care_id: patient_1.id, medicament: Mexitil, dose: 3)
 MedicalCareMedicament.create!(medical_care_id: patient_1.id, medicament: Protandim, dose: 9)
 MedicalCareMedicament.create!(medical_care_id: patient_1.id, medicament: Quercetine, dose: 6)
 MedicalCareMedicament.create!(medical_care_id: patient_1.id, medicament: Tegretol, dose: 3)
 
 MedicalCareMedicament.create!(medical_care_id: patient_2.id, medicament: Lozartan, dose: 3)
 MedicalCareMedicament.create!(medical_care_id: patient_2.id, medicament: Creatine, dose: 9)
-MedicalCareMedicament.create!(medical_care_id: patient_2.id, medicament: Coenzyme_Q10, dose: 3)
 MedicalCareMedicament.create!(medical_care_id: patient_2.id, medicament: Calcium, dose: 3)
 MedicalCareMedicament.create!(medical_care_id: patient_2.id, medicament: Dantrium, dose: 6)
-MedicalCareMedicament.create!(medical_care_id: patient_2.id, medicament: Haelan, dose: 9)
+MedicalCareMedicament.create!(medical_care_id: patient_2.id, medicament: Protandium, dose: 9)
 MedicalCareMedicament.create!(medical_care_id: patient_2.id, medicament: Dilantin, dose: 6)
 puts "#{MedicalCareMedicament.count} MedicalCareMedicament crées"
 
