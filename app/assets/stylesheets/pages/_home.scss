@@ -20,26 +20,25 @@ body {
   H5 {
     display: flex;
     justify-content: center;
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 16px;
   }
-}
-
-.barre-separation-profil {
-  content: "";
-  display: flex;
-  justify-self: center;
-  width: 320px;
-  height: 0.8px;
-  background-color: #CFBCFF;
-  margin-top: 2px;
-  margin-bottom: 2px;
 }
 
 /* Calendrier */
 
 .calendar-container {
   display: grid;
+  border-color: #F7F2FA;
+  border-style: solid;
+  background-color: #F7F2FA;
+  border-width: 1.399999976158142px;
+  border-radius: 12px;
+  padding: 16px;
+  max-width: 352px;
+  position: relative;
+    p{
+      color: #0e0000b2;
+    }
 }
 
 .calendar-row {
@@ -75,22 +74,8 @@ body {
   }
 }
 
-.rdv-week-day {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 46px;
-  width: 46px;
-  border-radius: 50%;
-  background-color: #D0BCFF;
-  a {
-    color: black;
-    text-decoration: none;
-  }
-}
-
 .date-name {
-  font-size: larger;
+  // font-size: larger;
 }
 
 .rdv-home {
@@ -99,7 +84,7 @@ body {
   border-width: 1.399999976158142px;
   border-radius: 12px;
   padding: 6px;
-  width: 322px;
+  width: 352px;
 }
 
 .rdv-home-info {
@@ -110,7 +95,7 @@ body {
 
 .nom-adresse-rdv-home {
   flex: 1;
-  font-size: 1.1rem;
+  font-size: 1rem;
   gap: 0.4rem;
 }
 
@@ -120,21 +105,25 @@ body {
 }
 
 .patient-home {
-  width: 322px;
-  border-color: #cac4d0;
+  display: grid;
+  border-color: #F7F2FA;
   border-style: solid;
+  background-color: #F7F2FA;
   border-width: 1.399999976158142px;
   border-radius: 12px;
-  gap: 6px;
-  padding: 6px;
+  padding: 16px;
+  width: 352px;
+  position: relative;
+  padding-left: 72px;
   p {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
+    margin-left: 16px;
   }
 }
 
 .medicament-name {
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: 1.1rem;
+  margin-left: 50px;
 }
 
 .btn-medicament-prit {
@@ -145,7 +134,9 @@ body {
   border-radius: 8px;
   transition: background-color 0.3s;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
+  margin-left: -8px;
+  margin-top: 16px;
   a {
     color: #000000;
     text-decoration: none;
@@ -158,6 +149,42 @@ body {
   }
 }
 
-.div-medoc {
-  display: flex;
+.barre-separation-accueil::after {
+  content: "";
+  display: block;
+  width: 238px;
+  height: 0.6px;
+  background-color: #CFBCFF;
+  margin-top: 11px;
+  margin-bottom: 8px;
 }
+
+.barre-separation-accueil-int::after {
+  content: "";
+  display: block;
+  width: 238px;
+  height: 0.6px;
+  background-color: #e1dbe6;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin-left: -18px;
+}
+
+#medicament-pris {
+  color : #0e7b00;
+  margin-top: 8px;
+  margin-left: 3px;
+}
+
+.medicament-dose {
+  margin-left: 32px;
+}
+
+#barre-accueil-rdv-haut {
+margin-bottom: -19px;
+}
+
+#barre-accueil-rdv-bas {
+margin-top: -29px;
+}
+
